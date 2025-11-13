@@ -1,30 +1,25 @@
 {
-  "name": "web103.json",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "cpweb103finalproject2025",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+  "dev:client": "npm run dev --prefix client",
+  "dev:server": "nodemon server/server.js",
+  "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\""
   },
-  "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Web103QPRBKA/CPWeb103FinalProject2025.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Web103QPRBKA/CPWeb103FinalProject2025/issues"
+  },
+  "homepage": "https://github.com/Web103QPRBKA/CPWeb103FinalProject2025#readme",
+  "description": "",
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/node": "^24.10.0",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
-    "@vitejs/plugin-react": "^5.1.0",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.46.3",
-    "vite": "^7.2.2"
+    "concurrently": "^9.2.1"
   }
 }
