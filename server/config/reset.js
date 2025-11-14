@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: "../.env" });
 
 import { playersData } from "../data/player.js";
-import { gameThemesData } from "../data/gameTheme.js";
+import { themesData } from "../data/theme.js";
 
 const createThemesTable = async () => {
   const createThemesTableQuery = `
@@ -52,7 +52,7 @@ const createPlayersTable = async () => {
 
 const seedThemesTable = async () => {
   await createThemesTable();
-  gameThemesData.forEach((theme) => {
+  themesData.forEach((theme) => {
     const insertQuery = {
       text: "INSERT INTO theme (themeName, emoji, backgroundColor, description) VALUES($1, $2, $3, $4)",
     };

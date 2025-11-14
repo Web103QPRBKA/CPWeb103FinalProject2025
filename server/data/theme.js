@@ -1,4 +1,4 @@
-export const gameThemesData = [
+export const themesData = [
   {
     id: 1,
     themeName: "brain",
