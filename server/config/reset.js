@@ -5,6 +5,7 @@ dotenv.config({ path: "../.env" });
 
 import { playersData } from "../data/player.js";
 import { themesData } from "../data/theme.js";
+import { gamesPlayersData } from "../data/gamePlayer.js";
 
 const createThemesTable = async () => {
   const createThemesTableQuery = `
@@ -47,6 +48,31 @@ const createPlayersTable = async () => {
     console.log("🎉 Player table created successfully.", PlayerRes);
   } catch (error) {
     console.error("⚠️ Error creating Players table:", error);
+  }
+};
+
+const createGamesPlayersTable = async () => {
+  const createGamesPlayersTableQuery = `
+  DROP TABLE IF EXISTS gameplayer CASCADE;
+  
+  CREATE TABLE IF NOT EXISTS gameplayer (
+    playerId INT NOT NULL,
+    gameId INT NOT NULL,
+    PRIMARY KEY (playerId, gameId),
+    FOREIGN KEY (playerId) REFERENCES player(id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+    FOREIGN KEY (gameId) REFERENCES game(id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+  );
+  `;
+
+  try {
+    const gamePlayerRes = await pool.query(createGamesPlayersTableQuery);
+    console.log("🎉 GamesPlayers table created successfully.", gamePlayerRes);
+  } catch (error) {
+    console.error("⚠️ Error creating GamesPlayers table:", error);
   }
 };
 
@@ -95,11 +121,40 @@ const seedPlayersTable = async () => {
   });
 };
 
+const seedGamesPlayersTable = async () => {
+  await createGamesPlayersTable();
+  gamesPlayersData.forEach((gamePlayer) => {
+    const insertQuery = {
+      text: " INSERT INTO gamesplayer (playerId,gameId, dateStarted, lastPlayed) VALUES ($1, $2, $3, $4)",
+    };
+    const values = [
+      gamePlayer.playerId,
+      gamePlayer.gameId,
+      gamePlayer.dateStarted,
+      gamePlayer.lastPlayed
+    ];
+
+    pool.query(insertQuery, values, (err, res) => {
+      if (err) {
+        console.log(
+          `⚠️ Error inserting gamesplayers: ${gamePlayer.playerId},${gamePlayer.gameId} `,
+          err
+        );
+        return;
+      }
+      console.log(
+        `✅ ${gamePlayer.playerId},${gamePlayer.gameId} added successfully`
+      );
+    });
+  });
+};
+
 const seedTables = async () => {
   try {
     console.log("Seeding database...");
     await seedThemesTable();
     await seedPlayersTable();
+    await seedGamesPlayersTable();
     console.log("Database seeding completed successfully.");
   } catch (error) {
     console.error("Error seeding database:", error);
