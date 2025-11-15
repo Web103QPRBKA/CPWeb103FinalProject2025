@@ -3,6 +3,7 @@ import "./config/dotenv.js";
 import cors from "cors";
 
 import cluesRoutes from "./routes/clues.js";
+import hintRoutes from "./routes/hints.js";
 
 const app = express();
 
@@ -10,6 +11,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/clues", cluesRoutes);
+app.use("/api/hints", hintRoutes);
+
 
 app.get("/", (req, res) => {
   res
