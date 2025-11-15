@@ -8,6 +8,7 @@ import { playersData } from "../data/player.js";
 import { gamesData } from "../data/game.js";
 import { gamesPlayersData } from "../data/gamePlayer.js";
 import { solutionsData } from "../data/solutions.js";
+import { cluesData } from "../data/clues.js";
 
 const createThemesTable = async () => {
   const createThemesTableQuery = `
@@ -125,6 +126,28 @@ const createSolutionsTable = async () => {
     console.log("🎉 Solution table created successfully.", SolutionRes);
   } catch (error) {
     console.error("⚠️ Error creating Solutions table:", error);
+  }
+};
+
+const createCluesTable = async () => {
+  const createCluesTableQuery = `
+  DROP TABLE IF EXISTS clue CASCADE;
+
+  CREATE TABLE IF NOT EXISTS clue (
+    id SERIAL PRIMARY KEY,
+    clue text NOT NULL,
+    gameId INT NOT NULL,
+    FOREIGN KEY (gameId) REFERENCES game(id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+  );
+`;
+
+  try {
+    const ClueRes = await pool.query(createCluesTableQuery);
+    console.log("🎉 Clues table created successfully.", ClueRes);
+  } catch (error) {
+    console.error("⚠️ Error creating Clues table:", error);
   }
 };
 
@@ -255,6 +278,29 @@ const seedSolutionsTable = async () => {
   });
 };
 
+
+const seedCluesTable = async () => {
+  await createCluesTable();
+  cluesData.forEach((clue) => {
+    const insertQuery = {
+      text: "INSERT INTO clue (clue, gameId) VALUES ($1, $2);",
+    };
+
+    const values = [
+      clue.clue,
+      clue.gameId,
+    ];
+
+    pool.query(insertQuery, values, (err, res) => {
+      if (err) {
+        console.log(`⚠️ Error inserting clues.`, err);
+        return;
+      }
+      console.log(`✅ Game clues added successfully`);
+    });
+  });
+};
+
 const seedTables = async () => {
   try {
     console.log("Seeding database...");
@@ -263,6 +309,8 @@ const seedTables = async () => {
     await seedGamesTable();
     await seedGamesPlayersTable();
     await seedSolutionsTable();
+    await seedCluesTable();
+    // await seedHintsTable();
     console.log("✅ Database seeding completed successfully.");
   } catch (error) {
     console.error("⚠️ Error seeding database:", error);
@@ -270,5 +318,3 @@ const seedTables = async () => {
 };
 
 seedTables();
-// seedThemesTable();
-// seedPlayersTable();
