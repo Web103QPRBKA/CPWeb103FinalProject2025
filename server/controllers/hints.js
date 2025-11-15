@@ -1,6 +1,6 @@
 import { pool } from "../config/database.js";
 
-// Getting Hints that belong to a certain game
+// Getting hints that belongs to a certain game
 const getHintsById = async (req, res) => {
   try {
     const id = parseInt(req.params.id);

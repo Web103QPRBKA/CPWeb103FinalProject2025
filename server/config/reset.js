@@ -105,16 +105,11 @@ const createGamesPlayersTable = async () => {
 
 const createSolutionsTable = async () => {
   const createSolutionsTableQuery = `
-  DROP TABLE IF EXISTS solution CASCADE;
+  DROP TABLE IF EXISTS solutions CASCADE;
 
-  CREATE TABLE IF NOT EXISTS solution (
+  CREATE TABLE IF NOT EXISTS solutions (
     id SERIAL PRIMARY KEY,
-    friend VARCHAR(50) NOT NULL,
-    firstScoop VARCHAR(50) DEFAULT NULL,
-    secondScoop VARCHAR(50) DEFAULT NULL,
-    visitOrder VARCHAR(10) DEFAULT NULL,
-    object VARCHAR(50) DEFAULT NULL,
-    power VARCHAR(50) DEFAULT NULL,
+    solution json,
     gameId INT NOT NULL,
     FOREIGN KEY (gameId) REFERENCES game(id)
       ON DELETE CASCADE
@@ -124,7 +119,7 @@ const createSolutionsTable = async () => {
 
   try {
     const solutionRes = await pool.query(createSolutionsTableQuery);
-    console.log("🎉 Solution table created successfully.", solutionRes);
+    console.log("🎉 Solutions table created successfully.", solutionRes);
   } catch (error) {
     console.error("⚠️ Error creating Solutions table:", error);
   }
@@ -278,16 +273,11 @@ const seedSolutionsTable = async () => {
   await createSolutionsTable();
   solutionsData.forEach((solution) => {
     const insertQuery = {
-      text: "INSERT INTO solution (friend, firstScoop, secondScoop, visitOrder, object, power, gameId) VALUES ($1, $2, $3, $4, $5, $6, $7);",
+      text: "INSERT INTO solutions (solution, gameId) VALUES ($1, $2);",
     };
 
     const values = [
-      solution.friend,
-      solution.firstScoop,
-      solution.secondScoop,
-      solution.visitOrder,
-      solution.object,
-      solution.power,
+      JSON.stringify(solution.solution),
       solution.gameId,
     ];
 

@@ -1,6 +1,6 @@
 import { pool } from "../config/database.js";
 
-// Getting clues that belong to a certain game
+// Getting clues that belongs to a certain game
 const getCluesById = async (req, res) => {
   try {
     const id = parseInt(req.params.id);

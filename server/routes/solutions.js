@@ -1,10 +1,9 @@
 import express from "express";
-import placeholderController from "../controllers/solutions.js";
+import solutionController from "../controllers/solutions.js";
 
 const router = express.Router();
 
-router.get("/", placeholderController.getAllGameSolutions);
-router.get("/:solution_id", placeholderController.getSingleGameSolution);
+router.get("/:id", solutionController.getSolutionById);
 
 
 export default router;
