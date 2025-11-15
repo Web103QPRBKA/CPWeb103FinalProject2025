@@ -7,6 +7,7 @@ import { themesData } from "../data/theme.js";
 import { playersData } from "../data/player.js";
 import { gamesData } from "../data/game.js";
 import { gamesPlayersData } from "../data/gamePlayer.js";
+import { solutionsData } from "../data/solutions.js";
 
 const createThemesTable = async () => {
   const createThemesTableQuery = `
@@ -100,6 +101,33 @@ const createGamesPlayersTable = async () => {
   }
 };
 
+const createSolutionsTable = async () => {
+  const createSolutionsTableQuery = `
+  DROP TABLE IF EXISTS solution CASCADE;
+
+  CREATE TABLE IF NOT EXISTS solution (
+    id SERIAL PRIMARY KEY,
+    friend VARCHAR(50) NOT NULL,
+    firstScoop VARCHAR(50) DEFAULT NULL,
+    secondScoop VARCHAR(50) DEFAULT NULL,
+    visitOrder VARCHAR(10) DEFAULT NULL,
+    object VARCHAR(50) DEFAULT NULL,
+    power VARCHAR(50) DEFAULT NULL,
+    gameId INT NOT NULL,
+    FOREIGN KEY (gameId) REFERENCES game(id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+  );
+`;
+
+  try {
+    const SolutionRes = await pool.query(createSolutionsTableQuery);
+    console.log("🎉 Solution table created successfully.", SolutionRes);
+  } catch (error) {
+    console.error("⚠️ Error creating Solutions table:", error);
+  }
+};
+
 const seedThemesTable = async () => {
   await createThemesTable();
   themesData.forEach((theme) => {
@@ -172,7 +200,7 @@ const seedGamesPlayersTable = async () => {
   await createGamesPlayersTable();
   gamesPlayersData.forEach((gamePlayer) => {
     const insertQuery = {
-      text: " INSERT INTO gameplayer (playerId,gameId, dateStarted, lastPlayed, isCompleted, incorrectGuesses, correctGuesses, score) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+      text: "INSERT INTO gameplayer (playerId,gameId, dateStarted, lastPlayed, isCompleted, incorrectGuesses, correctGuesses, score) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
     };
     const values = [
       gamePlayer.playerId,
@@ -200,6 +228,33 @@ const seedGamesPlayersTable = async () => {
   });
 };
 
+const seedSolutionsTable = async () => {
+  await createSolutionsTable();
+  solutionsData.forEach((solution) => {
+    const insertQuery = {
+      text: "INSERT INTO solution (friend, firstScoop, secondScoop, visitOrder, object, power, gameId) VALUES ($1, $2, $3, $4, $5, $6, $7);",
+    };
+
+    const values = [
+      solution.friend,
+      solution.firstScoop,
+      solution.secondScoop,
+      solution.visitOrder,
+      solution.object,
+      solution.power,
+      solution.gameId,
+    ];
+
+    pool.query(insertQuery, values, (err, res) => {
+      if (err) {
+        console.log(`⚠️ Error inserting solutions.`, err);
+        return;
+      }
+      console.log(`✅ Game solutions added successfully`);
+    });
+  });
+};
+
 const seedTables = async () => {
   try {
     console.log("Seeding database...");
@@ -207,9 +262,10 @@ const seedTables = async () => {
     await seedPlayersTable();
     await seedGamesTable();
     await seedGamesPlayersTable();
-    console.log("Database seeding completed successfully.");
+    await seedSolutionsTable();
+    console.log("✅ Database seeding completed successfully.");
   } catch (error) {
-    console.error("Error seeding database:", error);
+    console.error("⚠️ Error seeding database:", error);
   }
 };
 
