@@ -3,8 +3,9 @@ import dotenv from "dotenv";
 // import "./dotenv.js";
 dotenv.config({ path: "../.env" });
 
-import { playersData } from "../data/player.js";
 import { themesData } from "../data/theme.js";
+import { playersData } from "../data/player.js";
+import { gamesData } from "../data/game.js";
 import { gamesPlayersData } from "../data/gamePlayer.js";
 
 const createThemesTable = async () => {
@@ -16,7 +17,7 @@ const createThemesTable = async () => {
     themeName VARCHAR(100),
     emoji VARCHAR(10),
     backgroundColor VARCHAR(10),
-    description TEXT
+    description text
   );
 `;
 
@@ -51,6 +52,27 @@ const createPlayersTable = async () => {
   }
 };
 
+const createGamesTable = async () => {
+  const createGamesTableQuery = `
+  DROP TABLE IF EXISTS game CASCADE;
+
+  CREATE TABLE IF NOT EXISTS game (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR (100) NOT NULL,
+  description text NOT NULL,
+  difficulty VARCHAR(10),
+  referenceAuthor VARCHAR (100) NOT NULL
+  );
+  `;
+
+  try {
+    const gameRes = await pool.query(createGamesTableQuery);
+    console.log("🎉 Game table created successfully.", gameRes);
+  } catch (error) {
+    console.error("⚠️ Error creating Games table:", error);
+  }
+};
+
 const createGamesPlayersTable = async () => {
   const createGamesPlayersTableQuery = `
   DROP TABLE IF EXISTS gameplayer CASCADE;
@@ -58,13 +80,15 @@ const createGamesPlayersTable = async () => {
   CREATE TABLE IF NOT EXISTS gameplayer (
     playerId INT NOT NULL,
     gameId INT NOT NULL,
+    dateStarted TIMESTAMP,
+    lastPlayed TIMESTAMP,
+    isCompleted BOOLEAN,
+    incorrectGuesses INT DEFAULT 0,
+    correctGuesses INT DEFAULT 0,
+    score INT DEFAULT 0,
     PRIMARY KEY (playerId, gameId),
-    FOREIGN KEY (playerId) REFERENCES player(id)
-      ON DELETE CASCADE
-      ON UPDATE CASCADE
-    FOREIGN KEY (gameId) REFERENCES game(id)
-      ON DELETE CASCADE
-      ON UPDATE CASCADE
+    FOREIGN KEY (playerId) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (gameId) REFERENCES game(id) ON DELETE CASCADE ON UPDATE CASCADE
   );
   `;
 
@@ -121,17 +145,44 @@ const seedPlayersTable = async () => {
   });
 };
 
+const seedGamesTable = async () => {
+  await createGamesTable();
+  gamesData.forEach((game) => {
+    const insertQuery = {
+      text: "INSERT INTO game (title, description, difficulty, referenceAuthor) VALUES ($1, $2, $3, $4);",
+    };
+    const values = [
+      game.title,
+      game.description,
+      game.difficulty,
+      game.referenceAuthor,
+    ];
+
+    pool.query(insertQuery, values, (err, res) => {
+      if (err) {
+        console.log(`⚠️ Error inserting game: ${game.title}`, err);
+        return;
+      }
+      console.log(`✅ ${game.title} added successfully`);
+    });
+  });
+};
+
 const seedGamesPlayersTable = async () => {
   await createGamesPlayersTable();
   gamesPlayersData.forEach((gamePlayer) => {
     const insertQuery = {
-      text: " INSERT INTO gamesplayer (playerId,gameId, dateStarted, lastPlayed) VALUES ($1, $2, $3, $4)",
+      text: " INSERT INTO gameplayer (playerId,gameId, dateStarted, lastPlayed, isCompleted, incorrectGuesses, correctGuesses, score) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
     };
     const values = [
       gamePlayer.playerId,
       gamePlayer.gameId,
       gamePlayer.dateStarted,
-      gamePlayer.lastPlayed
+      gamePlayer.lastPlayed,
+      gamePlayer.isCompleted,
+      gamePlayer.incorrectGuesses,
+      gamePlayer.correctGuesses,
+      gamePlayer.score,
     ];
 
     pool.query(insertQuery, values, (err, res) => {
@@ -154,6 +205,7 @@ const seedTables = async () => {
     console.log("Seeding database...");
     await seedThemesTable();
     await seedPlayersTable();
+    await seedGamesTable();
     await seedGamesPlayersTable();
     console.log("Database seeding completed successfully.");
   } catch (error) {
@@ -164,4 +216,3 @@ const seedTables = async () => {
 seedTables();
 // seedThemesTable();
 // seedPlayersTable();
-
