@@ -2,20 +2,24 @@ import express from "express";
 import "./config/dotenv.js";
 import cors from "cors";
 
+import cluesRoutes from "./routes/clues.js";
+
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 3001;
+app.use("/api/clues", cluesRoutes);
 
 app.get("/", (req, res) => {
   res
     .status(200)
     .send(
-      `<h1 style="text-align: center; margin-top: 50px;">SERVER IS RUNNING ON ${PORT}!</h1>`
+      `<h1 style="text-align: center; margin-top: 50px;">SERVER IS RUNNING!</h1>`
     );
 });
+
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
