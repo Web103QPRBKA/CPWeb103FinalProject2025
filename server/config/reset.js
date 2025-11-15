@@ -9,6 +9,7 @@ import { gamesData } from "../data/game.js";
 import { gamesPlayersData } from "../data/gamePlayer.js";
 import { solutionsData } from "../data/solutions.js";
 import { cluesData } from "../data/clues.js";
+import { hintsData } from "../data/hints.js";
 
 const createThemesTable = async () => {
   const createThemesTableQuery = `
@@ -122,8 +123,8 @@ const createSolutionsTable = async () => {
 `;
 
   try {
-    const SolutionRes = await pool.query(createSolutionsTableQuery);
-    console.log("🎉 Solution table created successfully.", SolutionRes);
+    const solutionRes = await pool.query(createSolutionsTableQuery);
+    console.log("🎉 Solution table created successfully.", solutionRes);
   } catch (error) {
     console.error("⚠️ Error creating Solutions table:", error);
   }
@@ -148,6 +149,28 @@ const createCluesTable = async () => {
     console.log("🎉 Clues table created successfully.", ClueRes);
   } catch (error) {
     console.error("⚠️ Error creating Clues table:", error);
+  }
+};
+
+const createHintsTable = async () => {
+  const createHintsTableQuery = `
+  DROP TABLE IF EXISTS hint CASCADE;
+
+  CREATE TABLE IF NOT EXISTS hint (
+    id SERIAL PRIMARY KEY,
+    hint text NOT NULL,
+    gameId INT NOT NULL,
+    FOREIGN KEY (gameId) REFERENCES game(id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+  );
+`;
+
+  try {
+    const hintRes = await pool.query(createHintsTableQuery);
+    console.log("🎉 Hints table created successfully.", hintRes);
+  } catch (error) {
+    console.error("⚠️ Error creating Hints table:", error);
   }
 };
 
@@ -301,6 +324,25 @@ const seedCluesTable = async () => {
   });
 };
 
+const seedHintsTable = async () => {
+  await createHintsTable();
+  hintsData.forEach((hint) => {
+    const insertQuery = {
+      text: "INSERT INTO hint (hint, gameId) VALUES ($1, $2);",
+    };
+
+    const values = [hint.hint, hint.gameId];
+
+    pool.query(insertQuery, values, (err, res) => {
+      if (err) {
+        console.log(`⚠️ Error inserting Hints.`, err);
+        return;
+      }
+      console.log(`✅ Game Hints added successfully`);
+    });
+  });
+};
+
 const seedTables = async () => {
   try {
     console.log("Seeding database...");
@@ -310,7 +352,7 @@ const seedTables = async () => {
     await seedGamesPlayersTable();
     await seedSolutionsTable();
     await seedCluesTable();
-    // await seedHintsTable();
+    await seedHintsTable();
     console.log("✅ Database seeding completed successfully.");
   } catch (error) {
     console.error("⚠️ Error seeding database:", error);
