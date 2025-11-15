@@ -5,6 +5,7 @@ import cors from "cors";
 import cluesRoutes from "./routes/clues.js";
 import hintRoutes from "./routes/hints.js";
 import solutionRoute from "./routes/solutions.js"
+import themeRoute from "./routes/theme.js"
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(cors());
 app.use("/api/clues", cluesRoutes);
 app.use("/api/hints", hintRoutes);
 app.use("/api/solutions", solutionRoute);
+app.use("/api/theme", themeRoute)
 
 
 app.get("/", (req, res) => {
