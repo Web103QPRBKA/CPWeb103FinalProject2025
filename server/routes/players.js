@@ -1,12 +1,13 @@
 import express from "express";
-import placeholderController from "../controllers/players.js";
+import playerController from "../controllers/players.js";
 
 const router = express.Router();
 
-router.get("/", placeholderController.getAllPlayers);
-router.get("/:player_id", placeholderController.getSinglePlayer);
-// router.post("/:player_id", placeholderController.x);
-router.delete("/:id", placeholderController.deletePlayer);
-router.patch("/:id", placeholderController.x);
+router.get("/", playerController.getAllPlayers);
+router.get("/:id", playerController.getPlayerGameById);
+router.post("/", playerController.createPlayer);
+router.patch("/:id", playerController.updatePlayer);
+router.delete("/:id", playerController.deletePlayer);
+
 
 export default router;
