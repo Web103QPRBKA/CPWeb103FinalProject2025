@@ -37,44 +37,50 @@ Screen Archetypes
 Splash Screen: Home Page: Puzzle Layout: Hints: Check Answers: Completion Page:
 
 Sign up
-[] A user can sign up for a game. [gif goes here]
+-[] A user can sign up for a game. [gif goes here]
 Read Rules
-[] A user can read the rules of the game to know how to play. [gif goes here]
+
+-[x] A user can read the rules of the game to know how to play. [gif goes here]
 Start Game
-[] A user can navigate to/from the rules <-> game screen.
+
+-[x] A user can navigate to/from the rules <-> game screen.
  A user can start a new game.
 [gif goes here]
 
 Choose Game difficulty
-[] A user can choose the difficulty level of the puzzle.
+-[x] A user can choose the difficulty level of the puzzle.
+[gif goes here]
+
+-[x] A user can choose the background theme of the puzzle page.
 [gif goes here]
 
 Track Progress
-[] A user can view their progress through the levels and see their score
+-[x] A user can see their score
 [gif goes here]
 
 Get hints
-[] A user can get hints when stuck on an answer or after making choose 3 incorrect guesses.
+-[x] A user can get hints when stuck on an answer or after making choose 3 incorrect guesses.
 [gif goes here]
 
 Baseline Features
 ✅ Baseline Features (MUST complete ALL) Complete all of the baseline features. These features use the core skills developed in this course, including designing a database schema, creating a server, and connecting a frontend to the server.
 
-[] The web app includes an Express backend app and a React frontend app.
-[] The web app includes dynamic routes for both frontend and backend apps.
-[] The web app is deployed on Render with all pages and features working.
-Backend Features
+-[x] The web app includes an Express backend app and a React frontend app.
+-[] The web app includes dynamic routes for both frontend and backend apps.
+-[] The web app is deployed on Render with all pages and features working.
 
-[] The web app implements at least one of each of the following database relationship in Postgres:
-[] one-to-many
-[] many-to-many with a join table
-[] The web app implements a well-designed RESTful API that:
-[] supports all four main request types for a single entity (ex. tasks in a to-do list app): GET, POST, PATCH, and DELETE
-[] the user can view items, such as tasks
-[] the user can create a new item, such as a task
-[] the user can update an existing item by changing some or all of its values, such as changing the title of task
-[] the user can delete an existing item, such as a task
-[] Implements proper naming conventions for routes. The web app includes the ability to reset the database to its default state.
+Backend Features
+-[x] The web app implements at least one of each of the following database relationship in Postgres:
+-[x] one-to-many
+-[x] many-to-many with a join table
+-[x] The web app implements a well-designed RESTful API that:
+-[x] supports all four main request types for a single entity (ex. tasks in a to-do list app): GET, POST, PATCH, and DELETE
+-[x] the user can view items, such as players, games, hints, clues
+-[x] the user can create a new item, such as a account
+-[x] the user can update an existing item by changing some or all of its values, such as changing the name of profile
+-[x] the user can delete an existing item, such as a profile
+-[x] Implements proper naming conventions for routes. The web app includes the ability to reset the database to its default state.
+
 Frontend Features
 
 [] The web app implements at least one redirection, where users are able to navigate to a new page with a new URL within the app
@@ -87,10 +93,10 @@ Frontend Features
 Custom Features
 Choose at least two custom features to include in your app. These features will make your app stand out with a more custom look and functionality.
 
-[] The web app gracefully handles errors.
-[] The web app includes a one-to-one database relationship.
+[x] The web app gracefully handles errors.
+[x] The web app includes a one-to-one database relationship.
 [] The web app includes a slide-out pane or modal as appropriate for your use case that pops up and covers the page content without navigating away from the current page.
-[] The web app includes a unique field within the join table.
+[x] The web app includes a unique field within the join table.
 [] The web app includes a custom non-RESTful route with corresponding controller actions.
 [] The user can filter or sort items based on particular criteria as appropriate for your use case.
 [] Data is automatically generated in response to a certain event or user action. Examples include generating a default inventory for a new user starting a game or creating a starter set of tasks for a user creating a new task app account.
