@@ -83,8 +83,6 @@ const createGamesPlayersTable = async () => {
   CREATE TABLE IF NOT EXISTS gameplayer (
     playerId INT NOT NULL,
     gameId INT NOT NULL,
-    dateStarted TIMESTAMP,
-    lastPlayed TIMESTAMP,
     isCompleted BOOLEAN,
     incorrectGuesses INT DEFAULT 0,
     correctGuesses INT DEFAULT 0,
@@ -241,13 +239,11 @@ const seedGamesPlayersTable = async () => {
   await createGamesPlayersTable();
   gamesPlayersData.forEach((gamePlayer) => {
     const insertQuery = {
-      text: "INSERT INTO gameplayer (playerId,gameId, dateStarted, lastPlayed, isCompleted, incorrectGuesses, correctGuesses, score) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+      text: "INSERT INTO gameplayer (playerId, gameId, isCompleted, incorrectGuesses, correctGuesses, score) VALUES ($1, $2, $3, $4, $5, $6)",
     };
     const values = [
       gamePlayer.playerId,
       gamePlayer.gameId,
-      gamePlayer.dateStarted,
-      gamePlayer.lastPlayed,
       gamePlayer.isCompleted,
       gamePlayer.incorrectGuesses,
       gamePlayer.correctGuesses,

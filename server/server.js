@@ -7,6 +7,7 @@ import hintRoutes from "./routes/hints.js";
 import solutionRoute from "./routes/solutions.js";
 import themeRoute from "./routes/theme.js";
 import gamesRoute from "./routes/games.js";
+import playersRoutes from "./routes/players.js";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use("/api/hints", hintRoutes);
 app.use("/api/solutions", solutionRoute);
 app.use("/api/theme", themeRoute);
 app.use("/api/games", gamesRoute);
+app.use("/api/players", playersRoutes);
 
 app.get("/", (req, res) => {
   res
