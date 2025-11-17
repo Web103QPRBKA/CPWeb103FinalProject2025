@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useRoutes, Link } from "react-router-dom";
 import Welcome from "./pages/Welcome";
 import Games from "./pages/Games";
+import Game from "./pages/Game";
 import "./css/App.css";
 
 const App = () => {
@@ -14,6 +15,10 @@ const App = () => {
       path: "/games",
       element: <Games  />,
     },
+    {
+      path:"games/:id",
+      element: <Game />
+    }
   ]);
 
   return (

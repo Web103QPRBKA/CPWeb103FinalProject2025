@@ -21,7 +21,7 @@ const GameCard = ({ id, title, reference, description, difficulty }) => {
             <i className="material-icons right">more_vert</i>
           </span>
           <p>
-            <Link to="/games">
+            <Link to={`/games/${id}`}>
               <button className="waves-effect waves-light z-depth-3 btn-large amber">
                 <i className="material-icons right">arrow_forward</i>Play Me!
               </button>

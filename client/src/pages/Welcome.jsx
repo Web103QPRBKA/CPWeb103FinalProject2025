@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
-    <div className="Welcome container">
+    <div className="container">
       <div className="row">
         <div className="col s12">
           <h2>Welcome, thinker!</h2>
