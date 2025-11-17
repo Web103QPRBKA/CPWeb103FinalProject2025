@@ -1,14 +1,14 @@
 import { pool } from "../config/database.js";
 
-
 const getAllGames = async (req, res) => {
   try {
-    const results = await pool.query("SELECT title, referenceAuthor, difficulty FROM game;");
+    const results = await pool.query(
+      "SELECT id, title, description, referenceAuthor, difficulty FROM game ORDER BY id;"
+    );
     res.status(200).json(results.rows);
-  }
-  catch (error) {
+  } catch (error) {
     res.status(409).json({ error: error.message });
-  };
+  }
 };
 
 // Getting a game the player has chosen

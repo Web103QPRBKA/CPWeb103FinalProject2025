@@ -1,9 +1,9 @@
 export const gamesData = [
   {
     id: 1,
-    title: "ICE-CREAM CONES",
+    title: "Ice-cream Cones",
     description: `Taking advantage of the warm weather, Todd and two of his friends 
-    each bought a double scoop of ice cream yesterday afternoon. EAch friend chose a 
+    each bought a double scoop of ice cream yesterday afternoon. Each friend chose a 
     difference flavor -- chocolate, fudge, ripple, or vanilla -- for the first
     scoop, and a difference flavor -- cookie dough, mint madness, or nutty crunch
     -- for the second scoop.  From the following clues, can you identify each 

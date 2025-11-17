@@ -1,33 +1,39 @@
-import { useState, useEffect } from 'react'
-import { useRoutes, Link } from 'react-router-dom'
-// import PlaceHolder from './pages/PlaceHolder'
-
-import './css/App.css'
+import { useState, useEffect } from "react";
+import { useRoutes, Link } from "react-router-dom";
+import Welcome from "./pages/Welcome";
+import Games from "./pages/Games";
+import "./css/App.css";
 
 const App = () => {
-  
-  
-
   let element = useRoutes([
-    // {
-    //   path: "/",
-    //   element: <Games data={games} />,
-    // },
-    // {}
+    {
+      path: "/",
+      element: <Welcome />,
+    },
+    {
+      path: "/games",
+      element: <Games  />,
+    },
   ]);
 
-  return ( 
-    <div className='App'>
-
-      <div className='header'>
-        <h1>Logic Puzzle</h1>
-        <Link to='/'><button className='headerBtn'>Explore Games</button></Link>
+  return (
+    <div className="App">
+      <div className="header">
+        <h1>
+          <span>
+            <i className="large material-icons">grid_on</i>
+          </span>
+          Logic Puzzle
+        </h1>
+        <nav >
+          <Link to="/">
+            <button className="headerBtn">Home</button>
+          </Link>
+        </nav>
       </div>
-
-        {element}
+      <main className="main_content">{element}</main>
     </div>
+  );
+};
 
-  )
-}
-
-export default App
+export default App;
