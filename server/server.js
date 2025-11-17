@@ -5,7 +5,7 @@ import cors from "cors";
 import cluesRoutes from "./routes/clues.js";
 import hintRoutes from "./routes/hints.js";
 import solutionRoute from "./routes/solutions.js";
-import themeRoute from "./routes/theme.js";
+import themeRoute from "./routes/themes.js";
 import gamesRoute from "./routes/games.js";
 import playersRoutes from "./routes/players.js";
 
@@ -17,7 +17,7 @@ app.use(cors());
 app.use("/api/clues", cluesRoutes);
 app.use("/api/hints", hintRoutes);
 app.use("/api/solutions", solutionRoute);
-app.use("/api/theme", themeRoute);
+app.use("/api/themes", themeRoute);
 app.use("/api/games", gamesRoute);
 app.use("/api/players", playersRoutes);
 
