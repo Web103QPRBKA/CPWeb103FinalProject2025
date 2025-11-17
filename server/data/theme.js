@@ -3,7 +3,7 @@ export const themesData = [
     id: 1,
     themeName: "brain",
     emoji: "🧠",
-    backgroundColor: "#cd5acdff",
+    backgroundColor: "#ffebee",
     description:
       "Challenge your memory, pattern recognition, and mental stamina.",
   },
@@ -11,7 +11,7 @@ export const themesData = [
     id: 2,
     themeName: "bulb",
     emoji: "💡",
-    backgroundColor: "#f1e7aeff",
+    backgroundColor: "#fff8e1",
     description:
       "Creative puzzles requiring outside-the-box thinking and clever insights.",
   },
@@ -19,7 +19,7 @@ export const themesData = [
     id: 3,
     themeName: "magnifying glass",
     emoji: "🔍",
-    backgroundColor: "#d7eee1ff",
+    backgroundColor: "#eeeeee",
     description:
       "Detailed logic and deduction tasks that reward careful observation.",
   },

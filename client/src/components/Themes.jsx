@@ -9,10 +9,9 @@ const Themes = ({ setWelcomeMessage }) => {
   useEffect(() => {
     const fetchThemes = async () => {
       try {
-        // const baseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
-        // const response = await fetch(`${baseUrl}/api/themes`);
-        // const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/themes`);
-        const response = await fetch("http://localhost:3001/api/themes");
+        const response = await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}/api/themes`
+        );
         const data = await response.json();
         if (!data) {
           throw new Error(`HTTP error! status: ${data.status}`);

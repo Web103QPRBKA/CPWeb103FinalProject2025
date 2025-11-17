@@ -6,12 +6,15 @@ const Game = () => {
     const [welcomeMessage, setWelcomeMessage] = useState("Enjoy to the Game.");
 
   return (
-    <div className="container ">
+    <div className="container">
+        
       <div className="row">
         <h1>Welcome Thinker!</h1>
         <h1>{welcomeMessage}</h1>
         <div className="amber">
-          <Themes setWelcomeMessage={setWelcomeMessage} />
+          <Themes
+            setWelcomeMessage={setWelcomeMessage}
+          />
         </div>
       </div>
       <div className="row">
