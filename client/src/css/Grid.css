@@ -81,6 +81,10 @@
   transform: translateY(0);
 }
 
+#logic-puzzle-title {
+  font-size: 3.5em;
+}
+
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .grid-cell {
@@ -92,7 +96,9 @@ height: 60px;
 font-size: 30px;
   }
 }
-
+.title-container {
+  display: flex;
+}
 @media (max-width: 480px) {
   .grid-cell {
 width: 50px;
