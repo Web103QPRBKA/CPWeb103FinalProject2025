@@ -1,0 +1,149 @@
+.clue-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.3s ease;
+  font-size: 0.95em;
+}
+
+.tab-button:hover {
+  color: #373D3F;
+  background-color: rgba(151, 191, 216, 0.1);
+}
+
+.tab-button.active {
+  color: #373D3F;
+  border-bottom-color: #97bfd8;
+}
+
+.panel-content {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.clues-section h3,
+.hints-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #373D3F;
+  font-size: 1.1em;
+}
+
+.clues-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.clue-item {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #97bfd8;
+  transition: all 0.2s ease;
+}
+
+.clue-item:hover {
+  background-color: #e9ecef;
+  transform: translateX(4px);
+}
+
+.clue-number {
+  font-weight: bold;
+  color: #97bfd8;
+  min-width: 25px;
+}
+
+.clue-text {
+  color: #373D3F;
+  line-height: 1.6;
+  font-size: 0.9em;
+}
+
+.hints-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.hint-item {
+  padding: 15px;
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border-radius: 8px;
+  border-left: 4px solid #ffc107;
+}
+
+.hint-header {
+  margin-bottom: 8px;
+}
+
+.hint-badge {
+  display: inline-block;
+  background-color: #ffc107;
+  color: #856404;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.hint-text {
+  color: #856404;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.no-data,
+.no-hints {
+  text-align: center;
+  padding: 30px;
+  color: #999;
+}
+
+.hint-tip {
+  margin-top: 10px;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+/* Scrollbar styling */
+.panel-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+  background: #97bfd8;
+  border-radius: 4px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: #7aa8c7;
+}
