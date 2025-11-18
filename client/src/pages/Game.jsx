@@ -23,24 +23,6 @@ const Game = () => {
           <Themes setWelcomeMessage={setWelcomeMessage} />
         </div>
       </div>
-      <div className="row">
-        <div className="col s9">
-          <div className="puzzle">PUZZLE GOES HERE</div>
-        </div>
-        <div className="col s3">
-          <div className="hints">
-            <ul className="collection with-header">
-              <li className="collection-header">
-                <h4>Hints</h4>
-              </li>
-              <li className="collection-item">Alvin</li>
-              <li className="collection-item">Alvin</li>
-              <li className="collection-item">Alvin</li>
-              <li className="collection-item">Alvin</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
