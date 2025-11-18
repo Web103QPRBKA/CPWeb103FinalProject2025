@@ -3,6 +3,7 @@ import Grid from './components/Grid'
 import LogicPuzzle from './components/LogicPuzzle'
 import Game from "./pages/Game";
 import './css/App.css'
+import Leaderboard from './components/Leaderboard'
 
 const App = () => {
   let element = useRoutes([
@@ -17,6 +18,10 @@ const App = () => {
     {
       path:"games/:id",
       element: <Game />
+    },
+    {
+    path: "/leaderboard",
+    element: <Leaderboard />,
     }
   ]);
 
@@ -26,6 +31,7 @@ const App = () => {
         <Link to='/'><button className='headerBtn'>Explore Games</button></Link>
         <Link to='/puzzle/1'><button className='headerBtn'>Play Puzzle 1</button></Link>
         <Link to='/puzzle/2'><button className='headerBtn'>Play Puzzle 2</button></Link>
+        <Link to='/leaderboard'><button className='headerBtn'>Leaderboard</button></Link>
       </div>
 
       {element}
