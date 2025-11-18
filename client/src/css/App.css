@@ -50,6 +50,18 @@ button {
 	transition: all .7s ease;
 	-webkit-transition: all .7s ease;
 }
+.title-grid-container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%; 
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.main {
+	display:flex;
+	flex-direction: row;
+}
 
 .footer {
 	width: 100%;

@@ -14,6 +14,7 @@ import "../css/LogicPuzzle.css";
 
 const LogicPuzzle = () => {
 	const { puzzleId } = useParams();
+	console.log("Puzzle ID from URL:", puzzleId);
 
 	const [puzzle, setPuzzle] = useState(null);
 	const [clues, setClues] = useState([]);
@@ -34,6 +35,7 @@ const LogicPuzzle = () => {
 				setError(null);
 
 				const puzzleData = await getPuzzleById(puzzleId);
+				console.log("Fetching puzzle with ID:", puzzleId);
 				setPuzzle(puzzleData);
 
 				const cluesData = await getCluesByGameId(puzzleId);

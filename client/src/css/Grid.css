@@ -61,7 +61,8 @@
 .reset-button {
   padding: 10px 30px;
   font-size: 16px;
-  background-color: #97bfd8;
+  background-color: #e57373;
+  /* background-color: #97bfd8; */
   color: #373D3F;
   border: none;
   border-radius: 8px;

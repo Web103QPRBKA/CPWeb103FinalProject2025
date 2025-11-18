@@ -1,6 +1,6 @@
 export const gamesData = [
   {
-    id: 2,
+    id: 1,
     title: "Ice-Cream Cones",
     description: `Taking advantage of the warm weather, Todd and two of his friends 
     each bought a double scoop of ice cream yesterday afternoon. Each friend chose a 
@@ -13,7 +13,7 @@ export const gamesData = [
       "Dell Logic Problems - Summer 2022. Author - Janet Fleming.",
   },
   {
-    id: 1,
+    id: 2,
     title: "Ozma's Magical Objects",
     description: `Princess Ozma of Ozz recently discovered four magical objects
     and decided to give each one (including a cape), to a difference one of her

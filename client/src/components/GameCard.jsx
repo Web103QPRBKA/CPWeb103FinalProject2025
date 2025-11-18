@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import icecream2 from "../assets/icecream2.jpeg";
 import crown2 from "../assets/crown2.png";
+import building2 from "../assets/building2.png";
 
 const GameCard = ({ id, title, reference, description, difficulty }) => {
-  const images = [icecream2, crown2];
+  const images = [icecream2, crown2, building2];
   return (
     <div className="GameCard">
       <h2>{title}</h2>
