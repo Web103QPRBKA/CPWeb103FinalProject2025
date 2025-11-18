@@ -90,24 +90,6 @@ Cancel
   </div>
 </div>
   </div>
-
-  <div className="control-section">
-<h4>How to Play</h4>
-<div className="instructions">
-  <ol>
-<li>Read all the clues carefully</li>
-<li>Click cells to mark relationships:
-  <ul>
-<li>✓ for "Yes" (matches)</li>
-<li>✗ for "No" (doesn't match)</li>
-  </ul>
-</li>
-<li>Use logic to eliminate possibilities</li>
-<li>Get hints if you're stuck</li>
-<li>Check your answer when complete</li>
-  </ol>
-</div>
-  </div>
 </div>
   );
 };

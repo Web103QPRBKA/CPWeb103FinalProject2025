@@ -1,6 +1,7 @@
 import { useState, useEffect, Fragment } from "react";
 import GridCell from "./GridCell";
 import { formatCategoryName } from "../utils/formatters";
+import { validateSolution } from "./AnswerTable";
 import "../css/PuzzleGrid.css";
 
 /*
@@ -21,9 +22,24 @@ const gridLayouts = [
 	},
 ];
 
-const PuzzleGrid = ({ solution }) => {
+const PuzzleGrid = ({ solution, onGridStateChange, resetTrigger }) => {
 	const [gridData, setGridData] = useState(null);
 	const [cellStates, setCellStates] = useState({});
+
+	// Reset grid when resetTrigger changes
+	useEffect(() => {
+		if (resetTrigger) {
+			setCellStates({});
+		}
+	}, [resetTrigger]);
+
+	// Notify parent component when grid state changes
+	useEffect(() => {
+		if (onGridStateChange && gridData) {
+			onGridStateChange({ cellStates, gridData });
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [cellStates, gridData]);
 
 	useEffect(() => {
 		if (!solution?.solution) {
@@ -51,6 +67,11 @@ const PuzzleGrid = ({ solution }) => {
 			*/
 			const getOrderedItems = (key) => {
 				const orderMaps = {
+					// Game 1 (Ice Cream) categories
+					friend: ["lisa", "sarah", "todd"],
+					firstScoop: ["chocolate", "fudge ripple", "vanilla"],
+					secondScoop: ["cookie dough", "mint madness", "nutty crunch"],
+					// Game 2 (Ozma) categories
 					visitOrder: ["first", "second", "third", "fourth"],
 					object: ["cape", "coronet", "ring", "trumpet"],
 					power: [
@@ -58,12 +79,6 @@ const PuzzleGrid = ({ solution }) => {
 						"invisibility",
 						"predict future",
 						"shift shapes",
-					],
-					friend: [
-						"cowardly cheetah",
-						"farmer",
-						"good fairy",
-						"lumberjack",
 					],
 				};
 
