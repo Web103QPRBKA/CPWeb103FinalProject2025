@@ -1,6 +1,7 @@
 import { useRoutes, Link } from 'react-router-dom'
 import Grid from './components/Grid'
 import LogicPuzzle from './components/LogicPuzzle'
+import Game from "./pages/Game";
 import './css/App.css'
 
 const App = () => {
@@ -13,6 +14,10 @@ const App = () => {
       path: "/puzzle/:puzzleId",
       element: <LogicPuzzle />,
     },
+    {
+      path:"games/:id",
+      element: <Game />
+    }
   ]);
 
   return ( 

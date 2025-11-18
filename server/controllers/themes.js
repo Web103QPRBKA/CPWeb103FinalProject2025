@@ -1,12 +1,11 @@
 import { pool } from "../config/database.js";
 
-// Getting all themes
 const getAllThemes = async (req, res) => {
   try {
-const results = await pool.query('SELECT * FROM theme');
-res.status(200).json(results.rows);
+    const results = await pool.query("SELECT * FROM theme ORDER BY id;");
+    res.status(200).json(results.rows);
   } catch (error) {
-res.status(409).json({ error: error.message });
+    res.status(409).json({ error: error.message });
   }
 };
 

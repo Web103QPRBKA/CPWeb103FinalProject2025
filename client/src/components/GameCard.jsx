@@ -11,7 +11,7 @@ const GameCard = ({ id, title, reference, description, difficulty }) => {
       <div className="card">
         <div
           className="card-image waves-effect waves-block waves-light"
-          style={{ width: 800, height:300 }}
+          style={{ width: 800, height: 300 }}
         >
           <img className="activator" src={images[id - 1]} alt={title} />
         </div>
@@ -21,7 +21,7 @@ const GameCard = ({ id, title, reference, description, difficulty }) => {
             <i className="material-icons right">more_vert</i>
           </span>
           <p>
-            <Link to="/games">
+            <Link to={`/games/${id}`} state={{ title: title, description: description, images:images }}>
               <button className="waves-effect waves-light z-depth-3 btn-large amber">
                 <i className="material-icons right">arrow_forward</i>Play Me!
               </button>
@@ -38,7 +38,6 @@ const GameCard = ({ id, title, reference, description, difficulty }) => {
           <p>Difficulty: {difficulty}.</p>
         </div>
       </div>
-
     </div>
   );
 };
