@@ -37,25 +37,25 @@ Screen Archetypes
 Splash Screen: Home Page: Puzzle Layout: Hints: Check Answers: Completion Page:
 
 Sign up
--[] A user can sign up for a game. [gif goes here]
-Read Rules
+-[x] A user can sign up for a game. [gif goes here] OR Checkout the game without logging in
+
+-[x] A user can read details about the games and choose a game they would like to play.  
 
 -[x] A user can read the rules of the game to know how to play. [gif goes here]
 Start Game
 
--[x] A user can navigate to/from the rules <-> game screen.
- A user can start a new game.
+-[x]  A user can start a new game.
 [gif goes here]
 
-Choose Game difficulty
--[x] A user can choose the difficulty level of the puzzle.
+Get clues
+-[x] A user can see the clues for the game.
 [gif goes here]
 
--[x] A user can choose the background theme of the puzzle page.
+-[x] A user can choose A welcome message background theme of the puzzle page.
 [gif goes here]
 
 Track Progress
--[x] A user can see their score
+-[] A user can see their score
 [gif goes here]
 
 Get hints
@@ -66,7 +66,7 @@ Baseline Features
 ✅ Baseline Features (MUST complete ALL) Complete all of the baseline features. These features use the core skills developed in this course, including designing a database schema, creating a server, and connecting a frontend to the server.
 
 -[x] The web app includes an Express backend app and a React frontend app.
--[] The web app includes dynamic routes for both frontend and backend apps.
+-[x] The web app includes dynamic routes for both frontend and backend apps.
 -[] The web app is deployed on Render with all pages and features working.
 
 Backend Features
@@ -83,12 +83,12 @@ Backend Features
 
 Frontend Features
 
-[] The web app implements at least one redirection, where users are able to navigate to a new page with a new URL within the app
-[] The web app implements at least one interaction that the user can initiate and complete on the same page without navigating to a new page.
-[] The web app uses dynamic frontend routes created with React Router.
-[] The web app uses hierarchically designed React components:
-[] Components are broken down into categories, including page and component types.
-[] Corresponding container components and presenter components as appropriate.
+-[x] The web app implements at least one redirection, where users are able to navigate to a new page with a new URL within the app
+-[x] The web app implements at least one interaction that the user can initiate and complete on the same page without navigating to a new page.
+-[x] The web app uses dynamic frontend routes created with React Router.
+-[x] The web app uses hierarchically designed React components:
+-[x] Components are broken down into categories, including page and component types.
+-[x] Corresponding container components and presenter components as appropriate.
 [] The project is deployed on Render with all pages and features that are visible to the user are working as intended.
 Custom Features
 Choose at least two custom features to include in your app. These features will make your app stand out with a more custom look and functionality.
