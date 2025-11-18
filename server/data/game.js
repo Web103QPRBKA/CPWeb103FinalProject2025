@@ -1,7 +1,7 @@
 export const gamesData = [
   {
     id: 1,
-    title: "Ice-cream Cones",
+    title: "Ice-Cream Cones",
     description: `Taking advantage of the warm weather, Todd and two of his friends 
     each bought a double scoop of ice cream yesterday afternoon. Each friend chose a 
     difference flavor -- chocolate, fudge, ripple, or vanilla -- for the first

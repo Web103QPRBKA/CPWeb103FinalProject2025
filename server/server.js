@@ -23,10 +23,10 @@ app.use("/api/players", playersRoutes);
 
 app.get("/", (req, res) => {
   res
-    .status(200)
-    .send(
-      `<h1 style="text-align: center; margin-top: 50px;">SERVER IS RUNNING!</h1>`
-    );
+.status(200)
+.send(
+  `<h1 style="text-align: center; margin-top: 50px;">SERVER IS RUNNING!</h1>`
+);
 });
 
 const PORT = process.env.PORT || 3001;

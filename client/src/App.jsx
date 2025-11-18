@@ -1,19 +1,18 @@
-import { useState, useEffect } from "react";
-import { useRoutes, Link } from "react-router-dom";
-import Welcome from "./pages/Welcome";
-import Games from "./pages/Games";
+import { useRoutes, Link } from 'react-router-dom'
+import Grid from './components/Grid'
+import LogicPuzzle from './components/LogicPuzzle'
 import Game from "./pages/Game";
-import "./css/App.css";
+import './css/App.css'
 
 const App = () => {
   let element = useRoutes([
     {
       path: "/",
-      element: <Welcome />,
+      element: <Grid />,
     },
     {
-      path: "/games",
-      element: <Games  />,
+      path: "/puzzle/:puzzleId",
+      element: <LogicPuzzle />,
     },
     {
       path:"games/:id",
@@ -21,24 +20,21 @@ const App = () => {
     }
   ]);
 
-  return (
-    <div className="App">
-      <div className="header">
-        <h1>
-          <span>
-            <i className="large material-icons">grid_on</i>
-          </span>
-          Logic Puzzle
-        </h1>
-        <nav >
-          <Link to="/">
-            <button className="headerBtn">Home</button>
-          </Link>
-        </nav>
+  return ( 
+    <div className='App'>
+      <div className='header'>
+        <Link to='/'><button className='headerBtn'>Explore Games</button></Link>
+        <Link to='/puzzle/1'><button className='headerBtn'>Play Puzzle 1</button></Link>
+        <Link to='/puzzle/2'><button className='headerBtn'>Play Puzzle 2</button></Link>
       </div>
-      <main className="main_content">{element}</main>
-    </div>
-  );
-};
 
-export default App;
+      {element}
+        
+      <footer className='footer'>
+        <p>&copy; 2025 Logic Puzzle App | Q.Partee, R. Bazelais, K. Ahmar</p>
+      </footer>
+    </div>
+  )
+}
+
+export default App

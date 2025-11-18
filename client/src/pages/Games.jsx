@@ -22,8 +22,8 @@ const Games = () => {
       }
     };
 
-    fetchGames();
-  }, []);
+		fetchGames();
+	}, []);
 
   return (
       <div className="games-container">

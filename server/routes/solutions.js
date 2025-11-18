@@ -5,5 +5,4 @@ const router = express.Router();
 
 router.get("/:id", solutionController.getSolutionById);
 
-
 export default router;

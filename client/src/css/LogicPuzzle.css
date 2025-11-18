@@ -1,0 +1,254 @@
+.logic-puzzle {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.puzzle-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.puzzle-header h2 {
+  margin: 0 0 15px 0;
+  color: #373D3F;
+  font-size: 2em;
+}
+
+.puzzle-description {
+  color: #666;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 15px;
+  font-size: 0.95em;
+}
+
+.difficulty-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.difficulty-badge.easy {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.difficulty-badge.medium {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.difficulty-badge.hard {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.puzzle-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr 280px;
+  gap: 20px;
+  align-items: start;
+}
+
+.puzzle-sidebar,
+.puzzle-main,
+.puzzle-controls {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.puzzle-main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Validation Feedback */
+.validation-feedback {
+  position: relative;
+  padding: 20px 40px 20px 20px;
+  border-radius: 8px;
+  border-left: 4px solid;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.validation-feedback.success {
+  background-color: #d4edda;
+  border-left-color: #28a745;
+  color: #155724;
+}
+
+.validation-feedback.error {
+  background-color: #f8d7da;
+  border-left-color: #dc3545;
+  color: #721c24;
+}
+
+.validation-feedback.warning {
+  background-color: #fff3cd;
+  border-left-color: #ffc107;
+  color: #856404;
+}
+
+.validation-feedback h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.3em;
+}
+
+.validation-feedback p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.validation-feedback .hint-text {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.validation-feedback .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  line-height: 1;
+}
+
+.validation-feedback .close-button:hover {
+  opacity: 1;
+}
+
+.validation-feedback .error-details {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.validation-feedback .error-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+}
+
+.validation-feedback .error-details summary:hover {
+  opacity: 0.8;
+}
+
+.validation-feedback .error-details ul {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+}
+
+.validation-feedback .error-details li {
+  margin: 5px 0;
+}
+
+/* How to Play Section */
+.how-to-play-section {
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 8px;
+  padding: 20px;
+  border-left: 4px solid #97bfd8;
+}
+
+.how-to-play-section h3 {
+  margin: 0 0 15px 0;
+  color: #373D3F;
+  font-size: 1.3em;
+}
+
+.how-to-play-section .instructions {
+  color: #555;
+}
+
+.how-to-play-section ol {
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.8;
+}
+
+.how-to-play-section li {
+  margin-bottom: 8px;
+}
+
+.how-to-play-section ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.how-to-play-section ul li {
+  margin-bottom: 4px;
+  list-style-type: disc;
+}
+
+/* Loading and error states */
+.logic-puzzle.loading,
+.logic-puzzle.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+.spinner {
+  font-size: 1.2em;
+  color: #97bfd8;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .puzzle-layout {
+grid-template-columns: 1fr;
+  }
+  
+  .puzzle-sidebar,
+  .puzzle-controls {
+order: 2;
+  }
+  
+  .puzzle-main {
+order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .puzzle-header h2 {
+font-size: 1.5em;
+  }
+  
+  .puzzle-description {
+font-size: 0.9em;
+  }
+}
