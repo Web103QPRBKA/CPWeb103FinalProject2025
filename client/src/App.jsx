@@ -18,7 +18,6 @@ const App = () => {
   return ( 
     <div className='App'>
       <div className='header'>
-        <h1>Logic Puzzle</h1>
         <Link to='/'><button className='headerBtn'>Explore Games</button></Link>
         <Link to='/puzzle/1'><button className='headerBtn'>Play Puzzle 1</button></Link>
         <Link to='/puzzle/2'><button className='headerBtn'>Play Puzzle 2</button></Link>
