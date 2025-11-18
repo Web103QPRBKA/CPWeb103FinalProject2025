@@ -22,12 +22,11 @@
 }
 
 .header {
-	position:fixed;
-	top:0;
-	width: 100%;
-	color: #011319;
-	text-align: center;
-	margin-bottom: 40px;
+  top:0;
+  width: 100%;
+  color: #011319;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .headerBtn {
