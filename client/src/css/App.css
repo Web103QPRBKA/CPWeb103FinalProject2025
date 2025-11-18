@@ -59,3 +59,17 @@ button {
   transition: all .7s ease;
   -webkit-transition: all .7s ease;
 }
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  color: #373D3F;
+  font-size: 14px;
+  border-top: 1px solid rgba(55, 61, 63, 0.2);
+}
+
+.footer p {
+  margin: 0;
+}
