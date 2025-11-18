@@ -1,0 +1,33 @@
+.leaderboard-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.leaderboard-container h2 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.leaderboard-container table {
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-container thead {
+  background-color: #ffc107;
+}
+
+.leaderboard-container thead th {
+  color: #000;
+  font-weight: 600;
+}
+
+.leaderboard-container tbody tr:hover {
+  background-color: #fff8e1;
+}
+
+.preloader-wrapper {
+  margin: 2rem auto;
+  display: block;
+}

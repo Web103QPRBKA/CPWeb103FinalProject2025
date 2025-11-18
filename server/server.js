@@ -8,6 +8,7 @@ import solutionRoute from "./routes/solutions.js";
 import themeRoute from "./routes/themes.js";
 import gamesRoute from "./routes/games.js";
 import playersRoutes from "./routes/players.js";
+import leaderboardRoute from "./routes/leaderboard.js";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use("/api/solutions", solutionRoute);
 app.use("/api/themes", themeRoute);
 app.use("/api/games", gamesRoute);
 app.use("/api/players", playersRoutes);
+app.use("/api/leaderboard", leaderboardRoute);
 
 app.get("/", (req, res) => {
   res
