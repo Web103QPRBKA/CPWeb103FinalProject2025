@@ -1,3 +1,5 @@
+:root { --header-height: 320px; }
+
 .App {
   font-family:Avenir, "Century Gothic", sans-serif;
   font-weight:100; 
@@ -6,7 +8,6 @@
   color: #373D3F;
   justify-content: center;
   background-image: url('./assets/background.jpg');
-  background-color: #97bfd8a3;
   background-position: right center;
   background-size: cover;
   padding:20px;
@@ -18,29 +19,21 @@
 
 
   min-height: 800px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   
 }
 
 .header {
+  position:fixed;
+  top:0;
   width: 100%;
-  color: #373D3F;
+  color: #011319;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .headerBtn {
   margin-bottom: 50px;
   margin-right: 10px;
-}
-
-.ReadPosts {
-  display: grid;
-  grid-auto-flow: row;
-
-  gap: 30px;
 }
 
 button {
@@ -50,7 +43,7 @@ button {
   font-size: 15px;
   font-weight: 500;
   font-family: inherit;
-  color:373D3F;
+  color: 373D3F;
   cursor: pointer;
   transition: border-color 0.25s;
 }
