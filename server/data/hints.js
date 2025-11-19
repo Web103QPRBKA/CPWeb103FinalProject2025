@@ -1,7 +1,7 @@
 export const hintsData = [
   {
     id: 1,
-    hint: "Sarah does not like the color green.",
+    hint: "Sarah likes the color green.",
     gameId: 1,
   },
   {

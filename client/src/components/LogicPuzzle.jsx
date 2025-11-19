@@ -28,6 +28,21 @@ const LogicPuzzle = () => {
 	const [validationResult, setValidationResult] = useState(null);
 	const [resetTrigger, setResetTrigger] = useState(0);
 	const [gameStatus, setGameStatus] = useState('Not Started');
+	const [score, setScore] = useState(0);
+	const [baseScore, setBaseScore] = useState(0);
+
+	// Score constants
+	const SCORE_BY_DIFFICULTY = {
+		easy: 1000,
+		medium: 2000,
+		hard: 3000
+	};
+	const BONUS_BY_DIFFICULTY = {
+		easy: { perfect: 500, noHints: 300 },
+		medium: { perfect: 1000, noHints: 600 },
+		hard: { perfect: 1500, noHints: 900 }
+	};
+	const HINT_PENALTY = 100; // Points deducted per hint
 
 	useEffect(() => {
 		const fetchPuzzleData = async () => {
@@ -47,6 +62,12 @@ const LogicPuzzle = () => {
 
 				const solutionData = await getSolutionByGameId(puzzleId);
 				setSolution(solutionData);
+
+				// Set base score based on difficulty
+				const difficulty = puzzleData.difficulty?.toLowerCase() || 'easy';
+				const initialScore = SCORE_BY_DIFFICULTY[difficulty] || SCORE_BY_DIFFICULTY.easy;
+				setBaseScore(initialScore);
+				setScore(initialScore); // Start with full base score
 			} catch (err) {
 				console.error("Error loading puzzle:", err);
 				setError("Failed to load puzzle. Please try again.");
@@ -71,10 +92,19 @@ const LogicPuzzle = () => {
 		}
 	}, [gridState, validationResult]);
 
+	// Update score when hints are used
+	useEffect(() => {
+		// Deduct hint penalties from base score
+		const penaltyPoints = currentHintIndex * HINT_PENALTY;
+		const currentScore = Math.max(0, baseScore - penaltyPoints);
+		setScore(currentScore);
+	}, [currentHintIndex, baseScore]);
+
 	const handleShowHint = () => {
 		if (currentHintIndex < hints.length) {
 			setShowHints(true);
 			setCurrentHintIndex((prev) => prev + 1);
+			// Score will be updated by the useEffect above
 		}
 	};
 
@@ -93,6 +123,34 @@ const LogicPuzzle = () => {
 			gridState.cellStates,
 			gridState.gridData,
 		);
+		
+		// If puzzle is solved correctly, apply bonuses and show final score
+		if (result.isCorrect && puzzle) {
+			const difficulty = puzzle.difficulty?.toLowerCase() || 'easy';
+			const bonuses = BONUS_BY_DIFFICULTY[difficulty] || BONUS_BY_DIFFICULTY.easy;
+			const earnedBonuses = [];
+			let finalScore = score; // Start with current score (base - penalties)
+			
+			// Perfect game bonus - check if the FINAL solution has no extra incorrect marks
+			// This means the player solved it cleanly, even if they made mistakes along the way
+			if (result.incorrectMarks === 0) {
+				finalScore += bonuses.perfect;
+				earnedBonuses.push(`Perfect Game (+${bonuses.perfect} pts)`);
+			}
+			
+			// No hints bonus
+			if (currentHintIndex === 0) {
+				finalScore += bonuses.noHints;
+				earnedBonuses.push(`No Hints Used (+${bonuses.noHints} pts)`);
+			}
+			
+			// Update the score with bonuses applied
+			setScore(finalScore);
+			
+			result.finalScore = finalScore;
+			result.bonuses = earnedBonuses;
+		}
+		
 		setValidationResult(result);
 	};
 
@@ -101,6 +159,7 @@ const LogicPuzzle = () => {
 		setCurrentHintIndex(0);
 		setValidationResult(null);
 		setGameStatus('Not Started');
+		setScore(baseScore); // Reset score to base score
 		setResetTrigger((prev) => prev + 1);
 	};
 
@@ -176,6 +235,19 @@ const LogicPuzzle = () => {
 								<>
 									<h3>🎉 Congratulations!</h3>
 									<p>You solved the puzzle! All {validationResult.correctChecks} matches are correct!</p>
+									<div className="score-breakdown">
+										<p className="final-score">Final Score: <strong>{validationResult.finalScore} points</strong></p>
+										{validationResult.bonuses && validationResult.bonuses.length > 0 && (
+											<div className="bonuses">
+												<p className="bonus-header">🌟 Bonuses Earned:</p>
+												<ul>
+													{validationResult.bonuses.map((bonus, idx) => (
+														<li key={idx}>✨ {bonus}</li>
+													))}
+												</ul>
+											</div>
+										)}
+									</div>
 								</>
 							) : validationResult.isComplete ? (
 								<>
@@ -240,6 +312,11 @@ const LogicPuzzle = () => {
 						hintsUsed={currentHintIndex}
 						totalHints={hints.length}
 						gameStatus={gameStatus}
+						score={score}
+						hintPenalty={HINT_PENALTY}
+						baseScore={baseScore}
+						difficulty={puzzle?.difficulty || "easy"}
+						isSolved={gameStatus === 'Solved'}
 					/>
 				</div>
 			</div>
