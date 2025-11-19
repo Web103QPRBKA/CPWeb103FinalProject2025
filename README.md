@@ -32,35 +32,40 @@ Frontend: Vite, ReactJS, Typescript/JavaScript, Css
 Backend: PostgreSQL, NodeJS, Express, TypeScript/JavaScript, Render
 
 ### Game Features:
-- [x] A player can read details about the games and choose a game they would like to play.
+✅ 1. A player can read details about the games and choose a game they would like to play.
 
+Video-walkthrough for feature 1.
 https://github.com/user-attachments/assets/6c185ae9-23e5-4702-a61b-165331ce89a3
 
-- [x] A player can start a new game without logging in and  A player can read the rules of the game to know how to play. 
+Video-walkthrough for feature 2.
+✅ 2. A player can start a new game without logging in and  A player can read the rules of the game to know how to play. 
 
 https://github.com/user-attachments/assets/03c11f57-d9d7-4348-905f-3f0d839dbb1f
 
-- [x] A player can see the clues for the game and A player can get hints when stuck on an answer.
+Video-walkthrough for feature 3.
+✅ 3. A player can see the clues for the game and A player can get hints when stuck on an answer.
 
 https://github.com/user-attachments/assets/13bf3c02-3659-42c3-938a-fe314fa17738
 
-- [x] A player can changes to their answers.
-- [x] A player can see how many hints they used up.
+Video-walkthrough for features 4 and 5.
+✅ 4. A player can changes to their answers.
+✅ 5. A player can see how many hints they used up.
 
 https://github.com/user-attachments/assets/2313b56c-8f5a-417c-b811-dc7e1b938de5
 
-- [x] A player can  check if they have answers correct.
-- [x] A player can track puzzle progress and A player can see their score.
+Video-walkthrough for features 6 and 7.
+✅ 6. A player can  check if they have answers correct.
+✅ 7. A player can track puzzle progress and A player can see their score.
 
 https://github.com/user-attachments/assets/6910634e-2acc-4ea3-8703-d21f3a2e579a
 
-
-- [x] A player can reset the puzzle if the was to start over.
+Video-walkthrough for features 8.
+✅ 8. A player can reset the puzzle if the was to start over.
 
 https://github.com/user-attachments/assets/02910ce9-2e43-4726-9587-2bf4cf006a79
 
-
-- [x] A player gets a congratulations message when completes the game.
+Video-walkthrough for feature 9.
+✅ 9. A player gets a congratulations message when completes the game.
 
 https://github.com/user-attachments/assets/63b2b5da-dfbc-4af5-b075-307c46cc9d57
 
