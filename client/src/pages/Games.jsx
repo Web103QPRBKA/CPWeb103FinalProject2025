@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import GameCard from "../components/GameCard";
-import Rules from "../components/Rules";
 
 const Games = () => {
   const [games, setGames] = useState([]);
@@ -27,13 +26,13 @@ const Games = () => {
 
   return (
       <div className="games-container">
-        <h2>Games:</h2>
         {games.map((game, index) => (
           <GameCard
             key={index}
             id={game.id}
             title={game.title}
-            reference={game.referenceauthor}
+            reference={game.reference}
+            author={game.author}
             description={game.description}
             difficulty={game.difficulty}
           />

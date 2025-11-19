@@ -1,6 +1,6 @@
 export const gamesData = [
   {
-    id: 2,
+    id: 1,
     title: "Ice-Cream Cones",
     description: `Taking advantage of the warm weather, Todd and two of his friends 
     each bought a double scoop of ice cream yesterday afternoon. Each friend chose a 
@@ -9,11 +9,11 @@ export const gamesData = [
     -- for the second scoop.  From the following clues, can you identify each 
     person's two flavors of ice cream? `,
     difficulty: "Easy",
-    referenceAuthor:
-      "Dell Logic Problems - Summer 2022. Author - Janet Fleming.",
+    reference: "Dell Logic Problems - Summer 2022",
+    author: "Janet Fleming",
   },
   {
-    id: 1,
+    id: 2,
     title: "Ozma's Magical Objects",
     description: `Princess Ozma of Ozz recently discovered four magical objects
     and decided to give each one (including a cape), to a difference one of her
@@ -22,8 +22,8 @@ export const gamesData = [
     determine the order (from first through fourth) in which Ozma visited each
     friend, as well as find the power of the object given to him or her?`,
     difficulty: "Easy",
-    referenceAuthor:
-      "Dell Logic Problems - Summer 2022. Author - David Champlin.",
+    reference: "Dell Logic Problems - Summer 2022",
+    author: "David Champlin",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ export const gamesData = [
     complex).  Using the following clues, can you match each architect with their
     project and the amount they won?`,
     difficulty: "Medium",
-    referenceAuthor:
-      "Dell Logic Problems - Summer 2022. Author - Linda C. Newell.",
+    reference: "Dell Logic Problems - Summer 2022",
+    author: "Linda C. Newell",
   },
 ];
