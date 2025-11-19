@@ -1,16 +1,17 @@
-
 import Grid from "../components/Grid";
+import Games from "./Games";
+import "../css/Welcome.css";
 
 
 const Welcome = () => {
   return (
     <div>
       <div className="row title-grid-container amber">
-        <div className="col s4">
+        <div >
           <Grid />
         </div>
         {/* <div className="game-title-container"> */}
-        <div className="col s8">
+        <div>
           <h1 id="logic-puzzle-title" className="title-container">
             Logic Puzzle
           </h1>
@@ -26,6 +27,9 @@ const Welcome = () => {
           </p>
           <p>Let’s see what your brain can do today!</p>
         </div>
+      </div>
+      <div className="games-container">
+        <Games />
       </div>
     </div>
   );

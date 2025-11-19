@@ -126,6 +126,7 @@ const LogicPuzzle = () => {
 			<div className="puzzle-header">
 				<h2>{puzzle.title}</h2>
 				<p className="puzzle-description">{puzzle.description}</p>
+				<p>{puzzle.referenceauthor}</p>
 				<span className={`difficulty-badge ${puzzle.difficulty}`}>
 					{puzzle.difficulty}
 				</span>

@@ -2,7 +2,6 @@ import { useRoutes, Link } from 'react-router-dom'
 import Grid from './components/Grid'
 import Welcome from './pages/Welcome';
 import LogicPuzzle from './components/LogicPuzzle'
-import Game from "./pages/Game";
 import './css/App.css'
 import Leaderboard from './components/Leaderboard'
 
@@ -17,10 +16,6 @@ const App = () => {
       element: <LogicPuzzle />,
     },
     {
-      path:"games/:id",
-      element: <Game />
-    },
-    {
     path: "/leaderboard",
     element: <Leaderboard />,
     }
@@ -30,7 +25,7 @@ const App = () => {
     <div className="App">
       <div className="header">
         <Link to="/">
-          <button className="headerBtn">Explore Games</button>
+          <button className="headerBtn">Home</button>
         </Link>
         <Link to="/puzzle/1">
           <button className="headerBtn">Play Puzzle 1</button>
