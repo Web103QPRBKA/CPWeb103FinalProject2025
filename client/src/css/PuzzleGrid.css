@@ -72,7 +72,6 @@
 	justify-content: center;
 	writing-mode: vertical-rl;
 	transform: rotate(180deg);
-	border-left: 1px solid #263238;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
