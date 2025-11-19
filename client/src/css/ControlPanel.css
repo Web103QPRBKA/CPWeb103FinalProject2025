@@ -7,7 +7,7 @@
 .control-panel h3 {
 	margin-top: 0;
 	margin-bottom: 15px;
-	color: #373D3F;
+	color: #373d3f;
 	font-size: 1.2em;
 }
 
@@ -23,7 +23,7 @@
 .control-section h4 {
 	margin-top: 0;
 	margin-bottom: 12px;
-	color: #373D3F;
+	color: #373d3f;
 	font-size: 1em;
 }
 
@@ -60,7 +60,7 @@
 
 .control-button.secondary {
 	background-color: #97bfd8;
-	color: #373D3F;
+	color: #373d3f;
 }
 
 .control-button.secondary:hover:not(:disabled) {
@@ -132,6 +132,12 @@
 	padding: 10px;
 	background-color: #f8f9fa;
 	border-radius: 6px;
+	align-items: center;
+}
+
+.stat-item:first-child {
+	background-color: #e7f3ff;
+	border: 2px solid #97bfd8;
 }
 
 .stat-label {
@@ -141,7 +147,27 @@
 
 .stat-value {
 	font-weight: 600;
-	color: #373D3F;
+	color: #373d3f;
+}
+
+.score-value {
+	font-size: 1.2em;
+	color: #97bfd8;
+	font-weight: 700;
+}
+
+.penalty-text {
+	color: #dc3545;
+	font-size: 0.85em;
+	font-weight: 600;
+	margin-left: 5px;
+}
+
+.max-score {
+	color: #6c757d;
+	font-size: 0.8em;
+	font-weight: 500;
+	margin-left: 5px;
 }
 
 /* Status-specific styling */
@@ -169,7 +195,7 @@
 .instructions ol {
 	margin: 0;
 	padding-left: 20px;
-	color: #373D3F;
+	color: #373d3f;
 }
 
 .instructions li {

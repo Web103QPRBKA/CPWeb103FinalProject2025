@@ -37,7 +37,7 @@
 .panel-content {
   flex: 1;
   overflow-y: auto;
-  max-height: 600px;
+  /* Remove max-height to allow content to determine height */
 }
 
 .clues-section h3,
