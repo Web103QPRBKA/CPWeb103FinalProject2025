@@ -1,6 +1,6 @@
 .logic-puzzle {
   width: 100%;
-  max-width: 1400px;
+  /* max-width: 1400px; */
   margin: 0 auto;
   padding: 20px;
 }
@@ -54,7 +54,7 @@
 
 .puzzle-layout {
   display: grid;
-  grid-template-columns: 300px 1fr 280px;
+  grid-template-columns: minmax(500px, 700px) 1fr minmax(500px, 700px);
   gap: 20px;
   align-items: start;
 }
@@ -174,6 +174,54 @@
   margin: 5px 0;
 }
 
+/* Score Breakdown in Success Message */
+.score-breakdown {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 6px;
+}
+
+.score-breakdown .final-score {
+  font-size: 1.3em;
+  margin: 0 0 10px 0;
+}
+
+.score-breakdown .final-score strong {
+  color: #28a745;
+  font-size: 1.2em;
+}
+
+.score-breakdown .bonuses {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.score-breakdown .bonus-header {
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #155724;
+}
+
+.score-breakdown ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.score-breakdown li {
+  margin: 6px 0;
+  padding-left: 5px;
+}
+
+.score-breakdown .multiplier-text {
+  margin: 10px 0 0 0;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #28a745;
+}
+
 /* How to Play Section */
 .how-to-play-section {
   background: rgba(248, 249, 250, 0.8);
@@ -228,27 +276,27 @@
 }
 
 /* Responsive design */
-@media (max-width: 1200px) {
+@media (max-width: 2500px) {
   .puzzle-layout {
-grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
   
   .puzzle-sidebar,
   .puzzle-controls {
-order: 2;
+    order: 2;
   }
   
   .puzzle-main {
-order: 1;
+    order: 1;
   }
 }
 
 @media (max-width: 768px) {
   .puzzle-header h2 {
-font-size: 1.5em;
+    font-size: 1.5em;
   }
   
   .puzzle-description {
-font-size: 0.9em;
+    font-size: 0.9em;
   }
 }
