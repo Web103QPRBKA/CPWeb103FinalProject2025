@@ -38,7 +38,10 @@ Splash Screen: Home Page: Puzzle Layout: Hints: Check Answers:
 
 FEATURES:
 - [x] A player can read details about the games and choose a game they would like to play.
-      
+
+https://github.com/user-attachments/assets/3b66c288-d096-4bb7-94ef-f24f7533a2b3
+
+
 - [x] A player can start a new game without logging in and  A player can read the rules of the game to know how to play. 
 
 https://github.com/user-attachments/assets/03c11f57-d9d7-4348-905f-3f0d839dbb1f
@@ -49,16 +52,24 @@ https://github.com/user-attachments/assets/13bf3c02-3659-42c3-938a-fe314fa17738
 
 - [x] A player can changes to their answers.
 - [x] A player can see how many hints they used up.
-- [x] A player can  check if they have answers correct.
-- [x] A player can track their progress and A player can see their score.
 
-      
+https://github.com/user-attachments/assets/2313b56c-8f5a-417c-b811-dc7e1b938de5
+
+- [x] A player can  check if they have answers correct.
+- [x] A player can track puzzle progress and A player can see their score.
+
+https://github.com/user-attachments/assets/6910634e-2acc-4ea3-8703-d21f3a2e579a
+
+
 - [x] A player can reset the puzzle if the was to start over.
 
 https://github.com/user-attachments/assets/02910ce9-2e43-4726-9587-2bf4cf006a79
 
 
 - [x] A player gets a congratulations message when completes the game.
+
+https://github.com/user-attachments/assets/63b2b5da-dfbc-4af5-b075-307c46cc9d57
+
 
 Baseline Features
 ✅ Baseline Features (MUST complete ALL) Complete all of the baseline features. These features use the core skills developed in this course, including designing a database schema, creating a server, and connecting a frontend to the server.
