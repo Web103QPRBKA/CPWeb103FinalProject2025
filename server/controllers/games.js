@@ -3,7 +3,7 @@ import { pool } from "../config/database.js";
 const getAllGames = async (req, res) => {
   try {
     const results = await pool.query(
-      "SELECT id, title, description, referenceAuthor, difficulty FROM game ORDER BY id;"
+      "SELECT id, title, description, reference, author, difficulty FROM game ORDER BY id;"
     );
     res.status(200).json(results.rows);
   } catch (error) {

@@ -31,7 +31,8 @@ const Games = () => {
             key={index}
             id={game.id}
             title={game.title}
-            reference={game.referenceauthor}
+            reference={game.reference}
+            author={game.author}
             description={game.description}
             difficulty={game.difficulty}
           />

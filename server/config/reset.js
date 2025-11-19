@@ -64,7 +64,8 @@ const createGamesTable = async () => {
   title VARCHAR (100) NOT NULL,
   description text NOT NULL,
   difficulty VARCHAR(10),
-  referenceAuthor VARCHAR (100) NOT NULL
+  reference VARCHAR (100) NOT NULL,
+  author VARCHAR (100) NOT NULL
   );
   `;
 
@@ -216,13 +217,14 @@ const seedGamesTable = async () => {
   await createGamesTable();
   gamesData.forEach((game) => {
 const insertQuery = {
-  text: "INSERT INTO game (title, description, difficulty, referenceAuthor) VALUES ($1, $2, $3, $4);",
+  text: "INSERT INTO game (title, description, difficulty, reference, author) VALUES ($1, $2, $3, $4, $5);",
 };
 const values = [
   game.title,
   game.description,
   game.difficulty,
-  game.referenceAuthor,
+  game.reference,
+  game.author,
 ];
 
 pool.query(insertQuery, values, (err, res) => {
