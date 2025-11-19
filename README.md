@@ -1,17 +1,17 @@
-# CPWeb103FinalProject2025
-About:  Work with  partners to create a Full-Stack web application on any topic of your choice: Implement all baseline features Implement two custom features Implement zero or more stretch features.
-💡 Logic Puzzle App
+# 💡 Logic Puzzle App
 CodePath WEB103 Final Project
 
 Designed and developed by: Q.Partee, R. Bazelais, K. Ahmar
 
-🔗 Link to deployed app: TBD
+<img width="1004" height="650" alt="Screenshot 2025-11-19 at 15 45 36" src="https://github.com/user-attachments/assets/ec68a1fe-ba06-4dfd-810b-0b7dfecab703" />
 
-About
+🔗 Link to deployed app: n/a
+
+### About
 Description and Purpose
 The “Logic Puzzle” web application is an interactive browser-based game designed to challenge players’ problem-solving skills. It features a clean, user-friendly interface, accessible puzzles, helpful hints, and answer validation. The project showcases our skills in front-end web development with an accessible and responsive design for all devices and backend functionality to store user progress and puzzle settings.
 
-App Evaluation
+### App Evaluation
 
 Web: How uniquely web is the product experience? It's designed for quick, focused gameplay, perfect while you are waiting for an appt, in line, airport, etc. Feels more natural on touchscreens. Responsive animations when complete a level to make it more engaging.
 
@@ -23,24 +23,18 @@ Habit Usage most likely daily or few times a week, possible d/t chasing better s
 
 Scope: How well-formed is the scope for this app? V1 Would provide a simple easy game with basic scale progression, keep track of score/level, screen for winning and losing. V2 Adds on hard mode (more complex puzzles), possible sounds/animation when complete a stage or level. V3 Adds on a timers(9 secs) for each move, possible additional puzzle themes.
 
-Inspiration
+### Inspiration
 We’re a team that loves making people think and have fun while they do it. One of us is all about designing cool game worlds and mechanics, and the other can’t resist a good logic puzzle. Together, we want to create games that spark curiosity, challenge the brain, and give players that “aha!” moment that keeps them coming back for more.
 
-Tech Stack
+### Tech Stack
 Frontend: Vite, ReactJS, Typescript/JavaScript, Css
 
 Backend: PostgreSQL, NodeJS, Express, TypeScript/JavaScript, Render
 
-Game Features
-Screen Archetypes
-
-Splash Screen: Home Page: Puzzle Layout: Hints: Check Answers: 
-
-FEATURES:
+### Game Features:
 - [x] A player can read details about the games and choose a game they would like to play.
 
-https://github.com/user-attachments/assets/3b66c288-d096-4bb7-94ef-f24f7533a2b3
-
+https://github.com/user-attachments/assets/6c185ae9-23e5-4702-a61b-165331ce89a3
 
 - [x] A player can start a new game without logging in and  A player can read the rules of the game to know how to play. 
 
@@ -71,7 +65,7 @@ https://github.com/user-attachments/assets/02910ce9-2e43-4726-9587-2bf4cf006a79
 https://github.com/user-attachments/assets/63b2b5da-dfbc-4af5-b075-307c46cc9d57
 
 
-Baseline Features
+### Baseline Features
 ✅ Baseline Features (MUST complete ALL) Complete all of the baseline features. These features use the core skills developed in this course, including designing a database schema, creating a server, and connecting a frontend to the server.
 
 - [x] The web app includes an Express backend app and a React frontend app.
@@ -90,7 +84,7 @@ Backend Features
 - [x] the user can delete an existing item, such as a profile
 - [x] Implements proper naming conventions for routes. The web app includes the ability to reset the database to its default state.
 
-Frontend Features
+### Frontend Features
 
 - [x] The web app implements at least one redirection, where users are able to navigate to a new page with a new URL within the app
 - [x] The web app implements at least one interaction that the user can initiate and complete on the same page without navigating to a new page.
@@ -98,16 +92,16 @@ Frontend Features
 - [x] The web app uses hierarchically designed React components:
 - [x] Components are broken down into categories, including page and component types.
 - [x] Corresponding container components and presenter components as appropriate.
-[] The project is deployed on Render with all pages and features that are visible to the user are working as intended.
+- [ ] The project is deployed on Render with all pages and features that are visible to the user are working as intended.
 
-Custom Features
+### Custom Features
 Choose at least two custom features to include in your app. These features will make your app stand out with a more custom look and functionality.
 
 - [x] The web app gracefully handles errors.
 - [x] The web app includes a one-to-one database relationship.
 - [x] The web app includes a unique field within the join table.
 
-Stretch Features - 
+### Stretch Features - 
 - [x] Show a spinner while a page or page element is loading
 
 https://github.com/user-attachments/assets/0ad7332b-ffda-43e0-9494-902092e0fdbd
