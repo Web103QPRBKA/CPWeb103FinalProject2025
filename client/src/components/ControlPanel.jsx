@@ -7,7 +7,8 @@ const ControlPanel = ({
   onShowHint, 
   hintsAvailable,
   hintsUsed,
-  totalHints 
+  totalHints,
+  gameStatus = 'Not Started'
 }) => {
   const [showConfirmReset, setShowConfirmReset] = useState(false);
 
@@ -86,7 +87,9 @@ Cancel
   </div>
   <div className="stat-item">
 <span className="stat-label">Status:</span>
-<span className="stat-value">In Progress</span>
+<span className={`stat-value status-${gameStatus.toLowerCase().replace(' ', '-')}`}>
+  {gameStatus}
+</span>
   </div>
 </div>
   </div>

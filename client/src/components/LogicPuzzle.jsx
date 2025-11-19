@@ -26,6 +26,7 @@ const LogicPuzzle = () => {
 	const [gridState, setGridState] = useState(null);
 	const [validationResult, setValidationResult] = useState(null);
 	const [resetTrigger, setResetTrigger] = useState(0);
+	const [gameStatus, setGameStatus] = useState('Not Started');
 
 	useEffect(() => {
 		const fetchPuzzleData = async () => {
@@ -57,6 +58,17 @@ const LogicPuzzle = () => {
 		}
 	}, [puzzleId]);
 
+	// Update game status based on grid state and validation
+	useEffect(() => {
+		if (validationResult?.isCorrect) {
+			setGameStatus('Solved');
+		} else if (gridState?.cellStates && Object.keys(gridState.cellStates).length > 0) {
+			setGameStatus('In Progress');
+		} else {
+			setGameStatus('Not Started');
+		}
+	}, [gridState, validationResult]);
+
 	const handleShowHint = () => {
 		if (currentHintIndex < hints.length) {
 			setShowHints(true);
@@ -86,6 +98,7 @@ const LogicPuzzle = () => {
 		setShowHints(false);
 		setCurrentHintIndex(0);
 		setValidationResult(null);
+		setGameStatus('Not Started');
 		setResetTrigger((prev) => prev + 1);
 	};
 
@@ -223,6 +236,7 @@ const LogicPuzzle = () => {
 						hintsAvailable={currentHintIndex < hints.length}
 						hintsUsed={currentHintIndex}
 						totalHints={hints.length}
+						gameStatus={gameStatus}
 					/>
 				</div>
 			</div>
