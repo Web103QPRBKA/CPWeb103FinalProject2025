@@ -18,7 +18,10 @@ const GameCard = ({ id, title, reference, description, author, difficulty }) => 
       <p className="card-text">{description}</p>
       <p>{reference}</p>
       <p>{author}</p>
-      <p>{difficulty}</p>
+      <p className={`difficulty ${difficulty.toLowerCase()}`}>{difficulty}</p>
+      <Link to={`/puzzle/${id}`}>
+        <button className="play-button">Play</button>
+      </Link>
     </div>
   );
 };

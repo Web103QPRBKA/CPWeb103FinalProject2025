@@ -8,7 +8,7 @@
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid #B0BEC5;
 }
 
 .tab-button {
@@ -19,32 +19,32 @@
   border-bottom: 3px solid transparent;
   cursor: pointer;
   font-weight: 600;
-  color: #666;
+  color: #78909C;
   transition: all 0.3s ease;
   font-size: 0.95em;
 }
 
 .tab-button:hover {
-  color: #373D3F;
-  background-color: rgba(151, 191, 216, 0.1);
+  color: #263238;
+  background-color: rgba(77, 182, 172, 0.1);
 }
 
 .tab-button.active {
-  color: #373D3F;
-  border-bottom-color: #97bfd8;
+  color: #263238;
+  border-bottom-color: #4DB6AC;
 }
 
 .panel-content {
   flex: 1;
   overflow-y: auto;
-  max-height: 600px;
+  /* Remove max-height to allow content to determine height */
 }
 
 .clues-section h3,
 .hints-section h3 {
   margin-top: 0;
   margin-bottom: 15px;
-  color: #373D3F;
+  color: #263238;
   font-size: 1.1em;
 }
 
@@ -56,28 +56,28 @@
 
 .clue-item {
   display: flex;
-  gap: 10px;
-  padding: 12px;
+  gap: 15px;
+  padding: 12px 12px 12px 15px;
   margin-bottom: 12px;
-  background-color: #f8f9fa;
+  background-color: #ECEFF1;
   border-radius: 8px;
-  border-left: 4px solid #97bfd8;
+  border-left: 4px solid #4DB6AC;
   transition: all 0.2s ease;
 }
 
 .clue-item:hover {
-  background-color: #e9ecef;
+  background-color: #CFD8DC;
   transform: translateX(4px);
 }
 
 .clue-number {
   font-weight: bold;
-  color: #97bfd8;
-  min-width: 25px;
+  color: #4DB6AC;
+  min-width: 30px;
 }
 
 .clue-text {
-  color: #373D3F;
+  color: #263238;
   line-height: 1.6;
   font-size: 0.9em;
 }
@@ -90,9 +90,9 @@
 
 .hint-item {
   padding: 15px;
-  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  background: linear-gradient(135deg, #FFF9C4 0%, #FFF59D 100%);
   border-radius: 8px;
-  border-left: 4px solid #ffc107;
+  border-left: 4px solid #FFC107;
 }
 
 .hint-header {
@@ -101,8 +101,8 @@
 
 .hint-badge {
   display: inline-block;
-  background-color: #ffc107;
-  color: #856404;
+  background-color: #FFC107;
+  color: #F57F17;
   padding: 4px 12px;
   border-radius: 12px;
   font-size: 0.8em;
@@ -110,7 +110,7 @@
 }
 
 .hint-text {
-  color: #856404;
+  color: #F57F17;
   line-height: 1.6;
   margin: 0;
   font-size: 0.9em;
@@ -140,10 +140,10 @@
 }
 
 .panel-content::-webkit-scrollbar-thumb {
-  background: #97bfd8;
+  background: #4DB6AC;
   border-radius: 4px;
 }
 
 .panel-content::-webkit-scrollbar-thumb:hover {
-  background: #7aa8c7;
+  background: #3D9E96;
 }

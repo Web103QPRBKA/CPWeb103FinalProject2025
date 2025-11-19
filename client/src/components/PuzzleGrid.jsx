@@ -20,6 +20,12 @@ const gridLayouts = [
 		rowCategories: ["visitOrder", "object", "power"],
 		colCategories: ["friend", "power", "object"],
 	},
+	{
+		id: 3,
+		gameId: 3,
+		rowCategories: ["architect", "project"],
+		colCategories: ["amount", "project"],
+	},
 ];
 
 const PuzzleGrid = ({ solution, onGridStateChange, resetTrigger }) => {
@@ -80,6 +86,10 @@ const PuzzleGrid = ({ solution, onGridStateChange, resetTrigger }) => {
 						"predict future",
 						"shift shapes",
 					],
+					// Game 3 (Architecture Grants) categories
+					architect: ["charlotte", "lance", "marvin", "olive", "wilson"],
+					project: ["condominium complex", "government building", "museum", "opera house", "stadium"],
+					amount: ["$1000", "$2000", "$3000", "$4000", "$5000"],
 				};
 
 				const seenItems = new Set();
