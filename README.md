@@ -34,74 +34,73 @@ Backend: PostgreSQL, NodeJS, Express, TypeScript/JavaScript, Render
 Game Features
 Screen Archetypes
 
-Splash Screen: Home Page: Puzzle Layout: Hints: Check Answers: Completion Page:
+Splash Screen: Home Page: Puzzle Layout: Hints: Check Answers: 
 
-Sign up
--[x] A user can sign up for a game. [gif goes here] OR Checkout the game without logging in
+FEATURES:
+- [x] A player can read details about the games and choose a game they would like to play.
+      
+- [x] A player can start a new game without logging in and  A player can read the rules of the game to know how to play. 
 
--[x] A user can read details about the games and choose a game they would like to play.  
+https://github.com/user-attachments/assets/03c11f57-d9d7-4348-905f-3f0d839dbb1f
 
--[x] A user can read the rules of the game to know how to play. [gif goes here]
-Start Game
+- [x] A player can see the clues for the game and A player can get hints when stuck on an answer.
 
--[x]  A user can start a new game.
-[gif goes here]
+https://github.com/user-attachments/assets/13bf3c02-3659-42c3-938a-fe314fa17738
 
-Get clues
--[x] A user can see the clues for the game.
-[gif goes here]
+- [x] A player can changes to their answers.
+- [x] A player can see how many hints they used up.
+- [x] A player can  check if they have answers correct.
+- [x] A player can track their progress and A player can see their score.
 
--[x] A user can choose A welcome message background theme of the puzzle page.
-[gif goes here]
+      
+- [x] A player can reset the puzzle if the was to start over.
 
-Track Progress
--[] A user can see their score
-[gif goes here]
+https://github.com/user-attachments/assets/02910ce9-2e43-4726-9587-2bf4cf006a79
 
-Get hints
--[x] A user can get hints when stuck on an answer or after making choose 3 incorrect guesses.
-[gif goes here]
+
+- [x] A player gets a congratulations message when completes the game.
 
 Baseline Features
 ✅ Baseline Features (MUST complete ALL) Complete all of the baseline features. These features use the core skills developed in this course, including designing a database schema, creating a server, and connecting a frontend to the server.
 
--[x] The web app includes an Express backend app and a React frontend app.
--[x] The web app includes dynamic routes for both frontend and backend apps.
+- [x] The web app includes an Express backend app and a React frontend app.
+- [x] The web app includes dynamic routes for both frontend and backend apps.
 -[] The web app is deployed on Render with all pages and features working.
 
 Backend Features
--[x] The web app implements at least one of each of the following database relationship in Postgres:
--[x] one-to-many
--[x] many-to-many with a join table
--[x] The web app implements a well-designed RESTful API that:
--[x] supports all four main request types for a single entity (ex. tasks in a to-do list app): GET, POST, PATCH, and DELETE
--[x] the user can view items, such as players, games, hints, clues
--[x] the user can create a new item, such as a account
--[x] the user can update an existing item by changing some or all of its values, such as changing the name of profile
--[x] the user can delete an existing item, such as a profile
--[x] Implements proper naming conventions for routes. The web app includes the ability to reset the database to its default state.
+- [x] The web app implements at least one of each of the following database relationship in Postgres:
+- [x] one-to-many
+- [x] many-to-many with a join table
+- [x] The web app implements a well-designed RESTful API that:
+- [x] supports all four main request types for a single entity (ex. tasks in a to-do list app): GET, POST, PATCH, and DELETE
+- [x] the user can view items, such as players, games, hints, clues
+- [x] the user can create a new item, such as a account
+- [x] the user can update an existing item by changing some or all of its values, such as changing the name of profile
+- [x] the user can delete an existing item, such as a profile
+- [x] Implements proper naming conventions for routes. The web app includes the ability to reset the database to its default state.
 
 Frontend Features
 
--[x] The web app implements at least one redirection, where users are able to navigate to a new page with a new URL within the app
--[x] The web app implements at least one interaction that the user can initiate and complete on the same page without navigating to a new page.
--[x] The web app uses dynamic frontend routes created with React Router.
--[x] The web app uses hierarchically designed React components:
--[x] Components are broken down into categories, including page and component types.
--[x] Corresponding container components and presenter components as appropriate.
+- [x] The web app implements at least one redirection, where users are able to navigate to a new page with a new URL within the app
+- [x] The web app implements at least one interaction that the user can initiate and complete on the same page without navigating to a new page.
+- [x] The web app uses dynamic frontend routes created with React Router.
+- [x] The web app uses hierarchically designed React components:
+- [x] Components are broken down into categories, including page and component types.
+- [x] Corresponding container components and presenter components as appropriate.
 [] The project is deployed on Render with all pages and features that are visible to the user are working as intended.
+
 Custom Features
 Choose at least two custom features to include in your app. These features will make your app stand out with a more custom look and functionality.
 
-[x] The web app gracefully handles errors.
-[x] The web app includes a one-to-one database relationship.
-[] The web app includes a slide-out pane or modal as appropriate for your use case that pops up and covers the page content without navigating away from the current page.
-[x] The web app includes a unique field within the join table.
-[] The web app includes a custom non-RESTful route with corresponding controller actions.
-[] The user can filter or sort items based on particular criteria as appropriate for your use case.
-[] Data is automatically generated in response to a certain event or user action. Examples include generating a default inventory for a new user starting a game or creating a starter set of tasks for a user creating a new task app account.
-[] Data submitted via a POST or PATCH request is validated before the database is updated (e.g. validating that an event is in the future before allowing a new event to be created)
-Stretch Features - TBD
-[ADDITIONAL FEATURES GO HERE - ADD ALL FEATURES HERE IN THE FORMAT ABOVE; you will check these off and add gifs as you complete them]
+- [x] The web app gracefully handles errors.
+- [x] The web app includes a one-to-one database relationship.
+- [x] The web app includes a unique field within the join table.
+
+Stretch Features - 
+- [x] Show a spinner while a page or page element is loading
+
+https://github.com/user-attachments/assets/0ad7332b-ffda-43e0-9494-902092e0fdbd
+
+
 Installation Instructions
 [instructions go here]
