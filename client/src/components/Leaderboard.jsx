@@ -16,9 +16,9 @@ const Leaderboard = () => {
         // If no players returned, use hardcoded data
         if (true) {
           setLeaders([
-            { playername: "PuzzleMaster88", score: 95 },
-            { playername: "LogicLynx", score: 82 },
-            { playername: "BrainTeaser", score: 78 }
+            { playername: "PuzzleMaster88", score: 1950 },
+            { playername: "LogicLynx", score: 1820 },
+            { playername: "BrainTeaser", score: 1780 }
           ]);
         } else {
           // Sort by score descending - ensure score is a number
@@ -35,9 +35,9 @@ const Leaderboard = () => {
         
         // Hardcoded fallback data
         setLeaders([
-          { playername: "PuzzleMaster88", score: 95 },
-          { playername: "LogicLynx", score: 82 },
-          { playername: "BrainTeaser", score: 78 }
+          { playername: "PuzzleMaster88", score: 1950 },
+          { playername: "LogicLynx", score: 1820 },
+          { playername: "BrainTeaser", score: 1780 }
         ]);
       } finally {
         setLoading(false);
@@ -51,9 +51,9 @@ const Leaderboard = () => {
   useEffect(() => {
     if (!loading && leaders.length < 3 && !error) {
       const hardcodedPlayers = [
-        { playername: "PuzzleMaster88", score: 95 },
-        { playername: "LogicLynx", score: 82 },
-        { playername: "BrainTeaser", score: 78 }
+        { playername: "PuzzleMaster88", score: 1950 },
+        { playername: "LogicLynx", score: 1820 },
+        { playername: "BrainTeaser", score: 1780 }
       ];
       
       // Merge with existing players and remove duplicates
