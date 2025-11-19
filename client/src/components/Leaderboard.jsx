@@ -88,14 +88,14 @@ const Leaderboard = () => {
       
       {error && (
         <div className="error-banner">
-          <i className="material-icons">info</i>
+          <span className="icon">ℹ️</span>
           <span>Showing sample data</span>
         </div>
       )}
 
       {leaders.length === 0 ? (
         <div className="empty-state">
-          <i className="material-icons">emoji_events</i>
+          <span className="trophy-icon">🏆</span>
           <h3>No Rankings Yet</h3>
           <p>Be the first to complete a puzzle and claim the top spot!</p>
         </div>
@@ -120,7 +120,7 @@ const Leaderboard = () => {
                   </td>
                   <td className="player-col">
                     <div className="player-info">
-                      <i className="material-icons">person</i>
+                      <span className="player-icon">👤</span>
                       <span className="player-name">{leader.playername}</span>
                     </div>
                   </td>

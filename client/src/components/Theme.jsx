@@ -13,13 +13,13 @@ const Theme = ({
   };
   return (
     <div className="Theme">
-      <a
-        className="waves-effect waves-light btn-small"
+      <button
+        className="theme-button"
         onClick={handleWelcomeClick}
       >
-        <i className="material-icons right">{emoji}</i>
+        <span className="theme-emoji">{emoji}</span>
         {themename}
-      </a>
+      </button>
     </div>
   );
 };

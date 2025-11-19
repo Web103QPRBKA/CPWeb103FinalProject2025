@@ -7,13 +7,13 @@
 .control-panel h3 {
 	margin-top: 0;
 	margin-bottom: 15px;
-	color: #373d3f;
+	color: #263238;
 	font-size: 1.2em;
 }
 
 .control-section {
 	padding-bottom: 20px;
-	border-bottom: 1px solid #e0e0e0;
+	border-bottom: 1px solid #B0BEC5;
 }
 
 .control-section:last-child {
@@ -23,7 +23,7 @@
 .control-section h4 {
 	margin-top: 0;
 	margin-bottom: 12px;
-	color: #373d3f;
+	color: #263238;
 	font-size: 1em;
 }
 
@@ -48,36 +48,36 @@
 }
 
 .control-button.primary {
-	background-color: #28a745;
+	background-color: #66BB6A;
 	color: white;
 }
 
 .control-button.primary:hover:not(:disabled) {
-	background-color: #218838;
+	background-color: #4CAF50;
 	transform: translateY(-2px);
-	box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+	box-shadow: 0 4px 8px rgba(102, 187, 106, 0.3);
 }
 
 .control-button.secondary {
-	background-color: #97bfd8;
-	color: #373d3f;
+	background-color: #4DB6AC;
+	color: white;
 }
 
 .control-button.secondary:hover:not(:disabled) {
-	background-color: #7aa8c7;
+	background-color: #3D9E96;
 	transform: translateY(-2px);
-	box-shadow: 0 4px 8px rgba(151, 191, 216, 0.3);
+	box-shadow: 0 4px 8px rgba(77, 182, 172, 0.3);
 }
 
 .control-button.danger {
-	background-color: #dc3545;
+	background-color: #E57373;
 	color: white;
 }
 
 .control-button.danger:hover {
-	background-color: #c82333;
+	background-color: #EF5350;
 	transform: translateY(-2px);
-	box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+	box-shadow: 0 4px 8px rgba(229, 115, 115, 0.3);
 }
 
 .control-button:disabled {
@@ -87,14 +87,15 @@
 
 .confirm-reset {
 	padding: 15px;
-	background-color: #fff3cd;
+	background-color: #FFF9C4;
 	border-radius: 8px;
 	margin-bottom: 10px;
+	border: 2px solid #FFC107;
 }
 
 .confirm-reset p {
 	margin: 0 0 10px 0;
-	color: #856404;
+	color: #F57F17;
 	font-weight: 600;
 	text-align: center;
 }
@@ -112,12 +113,12 @@
 .control-button.secondary-small {
 	flex: 1;
 	margin-bottom: 0;
-	background-color: #6c757d;
+	background-color: #78909C;
 	color: white;
 }
 
 .control-button.secondary-small:hover {
-	background-color: #5a6268;
+	background-color: #607D8B;
 }
 
 .progress-stats {
@@ -130,7 +131,7 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
-	background-color: #f8f9fa;
+	background-color: #ECEFF1;
 	border-radius: 6px;
 	align-items: center;
 }
@@ -141,61 +142,41 @@
 }
 
 .stat-label {
-	color: #666;
+	color: #78909C;
 	font-size: 0.9em;
 }
 
 .stat-value {
 	font-weight: 600;
-	color: #373d3f;
-}
-
-.score-value {
-	font-size: 1.2em;
-	color: #97bfd8;
-	font-weight: 700;
-}
-
-.penalty-text {
-	color: #dc3545;
-	font-size: 0.85em;
-	font-weight: 600;
-	margin-left: 5px;
-}
-
-.max-score {
-	color: #6c757d;
-	font-size: 0.8em;
-	font-weight: 500;
-	margin-left: 5px;
+	color: #263238;
 }
 
 /* Status-specific styling */
 .stat-value.status-not-started {
-	color: #6c757d;
+	color: #78909C;
 }
 
 .stat-value.status-in-progress {
-	color: #ffc107;
+	color: #FFC107;
 	font-weight: 700;
 }
 
 .stat-value.status-solved {
-	color: #28a745;
+	color: #66BB6A;
 	font-weight: 700;
 }
 
 .instructions {
-	background-color: #f8f9fa;
-	padding: 15px;
+	background-color: #ECEFF1;
+	padding: 15px 15px 15px 20px;
 	border-radius: 8px;
 	font-size: 0.85em;
 }
 
 .instructions ol {
 	margin: 0;
-	padding-left: 20px;
-	color: #373d3f;
+	padding-left: 25px;
+	color: #263238;
 }
 
 .instructions li {
