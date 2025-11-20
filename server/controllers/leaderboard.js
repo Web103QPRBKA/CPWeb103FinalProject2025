@@ -2,21 +2,33 @@ import { pool } from "../config/database.js";
 
 const getLeaderboard = async (req, res) => {
   try {
-    const results = await pool.query(`
+    const { difficulty, limit = 20 } = req.query;
+    
+    let query = `
       SELECT 
-        p.playerName,
+        l.id,
+        l.player_name as playerName,
         g.title as gameTitle,
-        gp.score,
-        gp.correctGuesses,
-        gp.incorrectGuesses,
-        gp.isCompleted
-      FROM gameplayer gp
-      INNER JOIN player p ON gp.playerId = p.id
-      INNER JOIN game g ON gp.gameId = g.id
-      WHERE gp.isCompleted = true
-      ORDER BY gp.score DESC, gp.correctGuesses DESC
-      LIMIT 20;
-    `);
+        g.difficulty,
+        l.score,
+        l.time_elapsed as timeElapsed,
+        l.hints_used as hintsUsed,
+        l.completed_at as completedAt
+      FROM leaderboard l
+      INNER JOIN game g ON l.game_id = g.id
+      WHERE 1=1
+    `;
+    const params = [];
+
+    if (difficulty) {
+      params.push(difficulty);
+      query += ` AND g.difficulty = $${params.length}`;
+    }
+
+    params.push(parseInt(limit));
+    query += ` ORDER BY l.score DESC, l.time_elapsed ASC LIMIT $${params.length}`;
+
+    const results = await pool.query(query, params);
     res.status(200).json(results.rows);
   } catch (error) {
     res.status(409).json({ error: error.message });
@@ -26,18 +38,24 @@ const getLeaderboard = async (req, res) => {
 const getLeaderboardByGame = async (req, res) => {
   try {
     const gameId = parseInt(req.params.gameId);
+    const { limit = 10 } = req.query;
+
     const results = await pool.query(`
       SELECT 
-        p.playerName,
-        gp.score,
-        gp.correctGuesses,
-        gp.incorrectGuesses
-      FROM gameplayer gp
-      INNER JOIN player p ON gp.playerId = p.id
-      WHERE gp.gameId = $1 AND gp.isCompleted = true
-      ORDER BY gp.score DESC, gp.correctGuesses DESC
-      LIMIT 10;
-    `, [gameId]);
+        l.id,
+        l.player_name as playerName,
+        l.score,
+        l.time_elapsed as timeElapsed,
+        l.hints_used as hintsUsed,
+        l.completed_at as completedAt,
+        g.title as gameTitle,
+        g.difficulty
+      FROM leaderboard l
+      INNER JOIN game g ON l.game_id = g.id
+      WHERE l.game_id = $1
+      ORDER BY l.score DESC, l.time_elapsed ASC
+      LIMIT $2;
+    `, [gameId, parseInt(limit)]);
     res.status(200).json(results.rows);
   } catch (error) {
     res.status(409).json({ error: error.message });

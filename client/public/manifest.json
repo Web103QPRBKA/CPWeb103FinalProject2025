@@ -1,0 +1,16 @@
+{
+  "name": "Logic Puzzles",
+  "short_name": "Logic Puzzles",
+  "description": "Interactive browser-based logic puzzle game designed to challenge your problem-solving skills",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4a90e2",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
