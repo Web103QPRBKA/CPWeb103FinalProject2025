@@ -9,7 +9,6 @@ import themeRoute from "./routes/themes.js";
 import gamesRoute from "./routes/games.js";
 import playersRoutes from "./routes/players.js";
 import leaderboardRoute from "./routes/leaderboard.js";
-import sessionsRoute from "./routes/sessions.js";
 
 const app = express();
 
@@ -23,7 +22,6 @@ app.use("/api/themes", themeRoute);
 app.use("/api/games", gamesRoute);
 app.use("/api/players", playersRoutes);
 app.use("/api/leaderboard", leaderboardRoute);
-app.use("/api/sessions", sessionsRoute);
 
 app.get("/", (req, res) => {
   res
