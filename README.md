@@ -1,13 +1,15 @@
 # 💡 Logic Puzzle App
+
 CodePath WEB103 Final Project
 
 Designed and developed by: Q.Partee, R. Bazelais, K. Ahmar
 
-<img width="1004" height="650" alt="Screenshot 2025-11-19 at 15 45 36" src="https://github.com/user-attachments/assets/ec68a1fe-ba06-4dfd-810b-0b7dfecab703" />
+![Screenshot](https://github.com/user-attachments/assets/ec68a1fe-ba06-4dfd-810b-0b7dfecab703)
 
 🔗 Link to deployed app: n/a
 
-### About
+## About
+
 Description and Purpose
 The “Logic Puzzle” web application is an interactive browser-based game designed to challenge players’ problem-solving skills. It features a clean, user-friendly interface, accessible puzzles, helpful hints, and answer validation. The project showcases our skills in front-end web development with an accessible and responsive design for all devices and backend functionality to store user progress and puzzle settings.
 
@@ -27,50 +29,53 @@ Scope: How well-formed is the scope for this app? V1 Would provide a simple easy
 We’re a team that loves making people think and have fun while they do it. One of us is all about designing cool game worlds and mechanics, and the other can’t resist a good logic puzzle. Together, we want to create games that spark curiosity, challenge the brain, and give players that “aha!” moment that keeps them coming back for more.
 
 ### Tech Stack
+
 Frontend: Vite, ReactJS, Typescript/JavaScript, Css
 
 Backend: PostgreSQL, NodeJS, Express, TypeScript/JavaScript, Render
 
-### Game Features:
+### Game Features
+
 ✅ 1. A player can read details about the games and choose a game they would like to play.
 
 Video-walkthrough for feature 1.
-https://github.com/user-attachments/assets/6c185ae9-23e5-4702-a61b-165331ce89a3
+
+<https://github.com/user-attachments/assets/6c185ae9-23e5-4702-a61b-165331ce89a3>
 
 Video-walkthrough for feature 2.
-✅ 2. A player can start a new game without logging in and  A player can read the rules of the game to know how to play. 
+✅ 2. A player can start a new game without logging in and  A player can read the rules of the game to know how to play.
 
-https://github.com/user-attachments/assets/03c11f57-d9d7-4348-905f-3f0d839dbb1f
+<https://github.com/user-attachments/assets/03c11f57-d9d7-4348-905f-3f0d839dbb1f>
 
 Video-walkthrough for feature 3.
 ✅ 3. A player can see the clues for the game and A player can get hints when stuck on an answer.
 
-https://github.com/user-attachments/assets/13bf3c02-3659-42c3-938a-fe314fa17738
+<https://github.com/user-attachments/assets/13bf3c02-3659-42c3-938a-fe314fa17738>
 
 Video-walkthrough for features 4 and 5.
 ✅ 4. A player can changes to their answers.
 ✅ 5. A player can see how many hints they used up.
 
-https://github.com/user-attachments/assets/2313b56c-8f5a-417c-b811-dc7e1b938de5
+<https://github.com/user-attachments/assets/2313b56c-8f5a-417c-b811-dc7e1b938de5>
 
 Video-walkthrough for features 6 and 7.
 ✅ 6. A player can  check if they have answers correct.
 ✅ 7. A player can track puzzle progress and A player can see their score.
 
-https://github.com/user-attachments/assets/6910634e-2acc-4ea3-8703-d21f3a2e579a
+<https://github.com/user-attachments/assets/6910634e-2acc-4ea3-8703-d21f3a2e579a>
 
 Video-walkthrough for features 8.
 ✅ 8. A player can reset the puzzle if the was to start over.
 
-https://github.com/user-attachments/assets/02910ce9-2e43-4726-9587-2bf4cf006a79
+<https://github.com/user-attachments/assets/02910ce9-2e43-4726-9587-2bf4cf006a79>
 
 Video-walkthrough for feature 9.
 ✅ 9. A player gets a congratulations message when completes the game.
 
-https://github.com/user-attachments/assets/63b2b5da-dfbc-4af5-b075-307c46cc9d57
-
+<https://github.com/user-attachments/assets/63b2b5da-dfbc-4af5-b075-307c46cc9d57>
 
 ### Baseline Features
+
 ✅ Baseline Features (MUST complete ALL) Complete all of the baseline features. These features use the core skills developed in this course, including designing a database schema, creating a server, and connecting a frontend to the server.
 
 - [x] The web app includes an Express backend app and a React frontend app.
@@ -89,7 +94,7 @@ Backend Features
 - [x] the user can delete an existing item, such as a profile
 - [x] Implements proper naming conventions for routes. The web app includes the ability to reset the database to its default state.
 
-### Frontend Features
+**Frontend Features**
 
 - [x] The web app implements at least one redirection, where users are able to navigate to a new page with a new URL within the app
 - [x] The web app implements at least one interaction that the user can initiate and complete on the same page without navigating to a new page.
@@ -99,18 +104,184 @@ Backend Features
 - [x] Corresponding container components and presenter components as appropriate.
 - [ ] The project is deployed on Render with all pages and features that are visible to the user are working as intended.
 
-### Custom Features
+## Custom Features
+
 Choose at least two custom features to include in your app. These features will make your app stand out with a more custom look and functionality.
 
 - [x] The web app gracefully handles errors.
 - [x] The web app includes a one-to-one database relationship.
 - [x] The web app includes a unique field within the join table.
 
-### Stretch Features - 
+## Stretch Features
+
 - [x] Show a spinner while a page or page element is loading
 
-https://github.com/user-attachments/assets/0ad7332b-ffda-43e0-9494-902092e0fdbd
+<https://github.com/user-attachments/assets/0ad7332b-ffda-43e0-9494-902092e0fdbd>
 
 
-Installation Instructions
-[instructions go here]
+## Installation Instructions
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+
+- **Node.js** (v14 or higher) - [Download here](https://nodejs.org/)
+- **npm** (comes with Node.js)
+- **PostgreSQL** (v12 or higher) - [Download here](https://www.postgresql.org/download/)
+- **Git** - [Download here](https://git-scm.com/downloads)
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/Web103QPRBKA/CPWeb103FinalProject2025.git
+cd CPWeb103FinalProject2025
+```
+
+### Step 2: Set Up PostgreSQL Database
+
+1. Create a new PostgreSQL database:
+
+   ```bash
+   psql -U postgres
+   CREATE DATABASE logic_puzzle_db;
+   \q
+   ```
+
+2. Note your PostgreSQL credentials (username, password, host, port, database name)
+
+### Step 3: Configure Environment Variables
+
+Create a `.env` file in the root directory with your PostgreSQL credentials:
+
+```bash
+PGUSER=your_postgres_username
+PGPASSWORD=your_postgres_password
+PGHOST=localhost
+PGPORT=5432
+PGDATABASE=logic_puzzle_db
+```
+
+**Important:** Replace the placeholder values with your actual PostgreSQL credentials.
+
+### Step 4: Install Dependencies
+
+Install all required dependencies for both client and server:
+
+```bash
+npm run install-all
+```
+
+Or manually install for each part:
+
+```bash
+# Install root dependencies
+npm install
+
+# Install client dependencies
+cd client
+npm install
+
+# Install server dependencies
+cd ../server
+npm install
+cd ..
+```
+
+### Step 5: Initialize the Database
+
+Run the database reset script to create tables and seed initial data:
+
+```bash
+cd server
+npm run reset
+cd ..
+```
+
+This will create the following tables:
+
+- `theme` - Game themes and color schemes
+- `player` - Player accounts and preferences
+- `game` - Available logic puzzles
+- `gameplayer` - Player game progress and scores
+- `solutions` - Puzzle solutions
+- `clue` - Game clues
+- `hint` - Available hints for each game
+
+### Step 6: Start the Development Server
+
+From the root directory, run:
+
+```bash
+npm run dev
+```
+
+This command will concurrently start:
+
+- **Frontend (Vite)** on `http://localhost:5173`
+- **Backend (Express)** on `http://localhost:3000` (or your configured port)
+
+### Step 7: Access the Application
+
+Open your browser and navigate to:
+
+```text
+http://localhost:5173
+```
+
+You should see the Logic Puzzle App welcome page!
+
+### Alternative: Start Servers Separately
+
+If you need to run the client and server separately:
+
+**Terminal 1 - Backend:**
+
+```bash
+cd server
+npm start
+```
+
+**Terminal 2 - Frontend:**
+
+```bash
+cd client
+npm run dev
+```
+
+### Troubleshooting
+
+**Database Connection Issues:**
+
+- Verify PostgreSQL is running: `pg_isready`
+- Check your `.env` file has correct credentials
+- Ensure the database exists: `psql -U postgres -l`
+
+**Port Already in Use:**
+
+- Change the Vite port in `client/vite.config.js`
+- Check if another process is using port 3000 or 5173
+
+**Module Not Found Errors:**
+
+- Delete `node_modules` folders and `package-lock.json` files
+- Run `npm run install-all` again
+
+**Database Reset:**
+
+If you need to reset the database to its initial state:
+
+```bash
+cd server
+npm run reset
+```
+
+### Production Build
+
+To create a production build of the frontend:
+
+```bash
+cd client
+npm run build
+```
+
+The optimized files will be in the `client/dist` directory.
