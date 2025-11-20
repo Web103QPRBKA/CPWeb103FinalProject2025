@@ -285,3 +285,152 @@ npm run build
 ```
 
 The optimized files will be in the `client/dist` directory.
+
+## Deployment to Production
+
+### Prerequisites for Deployment
+
+- A Netlify account for frontend hosting
+- A Render account for backend hosting (or Railway/Heroku)
+- PostgreSQL database (Render provides free PostgreSQL databases)
+- GitHub repository
+
+### Deploy to Netlify + Render
+
+#### 1. Deploy the Database
+
+1. Go to [Render Dashboard](https://dashboard.render.com/)
+2. Click "New +" → "PostgreSQL"
+3. Configure:
+   - **Name**: `logic-puzzle-db`
+   - **Database**: `logic_puzzle_db`
+   - **User**: (auto-generated)
+   - **Region**: Choose closest to your users
+   - **Plan**: Free or Starter
+4. Click "Create Database"
+5. Copy the **Internal Database URL** (starts with `postgres://`)
+
+#### 2. Deploy the Backend (Render)
+
+1. In Render Dashboard, click "New +" → "Web Service"
+2. Connect your GitHub repository
+3. Configure:
+   - **Name**: `logic-puzzle-api`
+   - **Root Directory**: `server`
+   - **Environment**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+   - **Plan**: Free or Starter
+4. Add Environment Variables (click "Advanced" → "Add Environment Variable"):
+
+   ```env
+   NODE_ENV=production
+   PGUSER=(from database credentials)
+   PGPASSWORD=(from database credentials)
+   PGHOST=(from database internal URL)
+   PGPORT=5432
+   PGDATABASE=logic_puzzle_db
+   PORT=3001
+   CLIENT_URL=(your Netlify frontend URL - add after frontend deployment)
+   ```
+
+5. Click "Create Web Service"
+6. After deployment, run the database reset:
+   - Go to the Shell tab in your web service
+   - Run: `cd config && node reset.js`
+7. **Copy your backend URL** (e.g., `https://logic-puzzle-api.onrender.com`)
+
+#### 3. Update API URL in Frontend
+
+Before deploying to Netlify, update the API base URL:
+
+1. Open `client/src/services/api.js`
+2. Update the base URL to your Render backend URL:
+
+   ```javascript
+   const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://logic-puzzle-api.onrender.com';
+   ```
+
+3. Or create `client/.env.production`:
+
+   ```env
+   VITE_API_URL=https://logic-puzzle-api.onrender.com
+   ```
+
+#### 4. Deploy the Frontend (Netlify)
+
+1. Go to [Netlify](https://app.netlify.com/)
+2. Click "Add new site" → "Import an existing project"
+3. Connect to GitHub and select your repository
+4. Configure build settings:
+   - **Base directory**: `client`
+   - **Build command**: `npm run build`
+   - **Publish directory**: `client/dist`
+5. Click "Deploy site"
+6. **Copy your Netlify URL** (e.g., `https://your-app.netlify.app`)
+
+#### 5. Update Backend CORS Configuration
+
+1. Go back to Render dashboard → Your backend service
+2. Update Environment Variables:
+   - Set `CLIENT_URL` to your Netlify URL (e.g., `https://your-app.netlify.app`)
+3. Save - the service will automatically redeploy
+
+### Environment Variables Reference
+
+Create a `.env` file in the `server` directory based on `.env.example`:
+
+```bash
+# Database Configuration
+PGUSER=your_database_user
+PGPASSWORD=your_database_password
+PGHOST=your_database_host
+PGPORT=5432
+PGDATABASE=logic_puzzle_db
+
+# Server Configuration
+PORT=3001
+NODE_ENV=production
+
+# Frontend URL (for CORS)
+CLIENT_URL=https://your-app.netlify.app
+```
+
+### Post-Deployment Checklist
+
+- [ ] Database is running and accessible on Render
+- [ ] Backend API is deployed on Render and responding at `/` endpoint
+- [ ] Database tables are created (run `npm run reset` via Render shell)
+- [ ] Frontend is deployed on Netlify
+- [ ] Frontend API URL is configured to point to Render backend
+- [ ] Backend CORS CLIENT_URL is set to Netlify URL
+- [ ] All environment variables are set correctly
+- [ ] Test all game features in production
+
+### Troubleshooting Deployment
+
+**Backend won't start:**
+
+- Check logs in Render dashboard
+- Verify all environment variables are set
+- Ensure database URL is correct
+
+**Database connection errors:**
+
+- Use the Internal Database URL for backend connection
+- Verify PGHOST, PGPORT, PGUSER, PGPASSWORD are correct
+- Check if database is running
+
+**CORS errors:**
+
+- Update CLIENT_URL in backend environment variables to match Netlify URL
+- Ensure URL includes protocol (https://)
+- Redeploy backend after updating
+
+**Frontend can't reach backend:**
+
+- Update API base URL in `client/src/services/api.js` or `client/.env.production`
+- Check backend service is running on Render
+- Verify API routes are accessible
+- Check browser console for network errors
+
