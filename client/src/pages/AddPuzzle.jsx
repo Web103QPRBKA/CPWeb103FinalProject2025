@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/AddPuzzle.css';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+
 const AddPuzzle = () => {
 	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
@@ -162,8 +164,9 @@ const AddPuzzle = () => {
 				parsedSolution = JSON.parse(solution);
 			} catch {
 				throw new Error('Solution must be valid JSON');
-			}			// Step 1: Create the game
-			const gameResponse = await fetch('http://localhost:3001/api/games', {
+			}
+			// Step 1: Create the game
+			const gameResponse = await fetch(`${API_BASE_URL}/games`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -179,7 +182,7 @@ const AddPuzzle = () => {
 			const gameId = newGame.id;
 
 			// Step 2: Add clues
-			const cluesResponse = await fetch('http://localhost:3001/api/clues', {
+			const cluesResponse = await fetch(`${API_BASE_URL}/clues`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -195,7 +198,7 @@ const AddPuzzle = () => {
 			}
 
 			// Step 3: Add hints
-			const hintsResponse = await fetch('http://localhost:3001/api/hints', {
+			const hintsResponse = await fetch(`${API_BASE_URL}/hints`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -211,7 +214,7 @@ const AddPuzzle = () => {
 			}
 
 			// Step 4: Add solution
-			const solutionResponse = await fetch('http://localhost:3001/api/solutions', {
+			const solutionResponse = await fetch(`${API_BASE_URL}/solutions`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
