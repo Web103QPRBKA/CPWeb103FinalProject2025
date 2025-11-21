@@ -245,15 +245,23 @@ const AddPuzzle = () => {
 		<div className="add-puzzle-container">
 			<h1>Add New Puzzle</h1>
 			
-			{error && <div className="error-message">{error}</div>}
-			{success && <div className="success-message">{success}</div>}
+			{error && (
+				<div className="error-message" role="alert" aria-live="assertive">
+					{error}
+				</div>
+			)}
+			{success && (
+				<div className="success-message" role="status" aria-live="polite">
+					{success}
+				</div>
+			)}
 
-			<form onSubmit={handleSubmit} className="puzzle-form">
-				<div className="form-section">
-					<h2>Game Information</h2>
+			<form onSubmit={handleSubmit} className="puzzle-form" aria-label="Add new puzzle form">
+				<fieldset className="form-section">
+					<legend>Game Information</legend>
 					
 					<div className="form-group">
-						<label htmlFor="title">Title *</label>
+						<label htmlFor="title">Title <span aria-label="required">*</span></label>
 						<input
 							type="text"
 							id="title"
@@ -261,11 +269,12 @@ const AddPuzzle = () => {
 							value={formData.title}
 							onChange={handleInputChange}
 							required
+							aria-required="true"
 						/>
 					</div>
 
 					<div className="form-group">
-						<label htmlFor="description">Description *</label>
+						<label htmlFor="description">Description <span aria-label="required">*</span></label>
 						<textarea
 							id="description"
 							name="description"
@@ -273,17 +282,19 @@ const AddPuzzle = () => {
 							onChange={handleInputChange}
 							rows="6"
 							required
+							aria-required="true"
 						/>
 					</div>
 
 					<div className="form-group">
-						<label htmlFor="difficulty">Difficulty *</label>
+						<label htmlFor="difficulty">Difficulty <span aria-label="required">*</span></label>
 						<select
 							id="difficulty"
 							name="difficulty"
 							value={formData.difficulty}
 							onChange={handleInputChange}
 							required
+							aria-required="true"
 						>
 							<option value="Easy">Easy</option>
 							<option value="Medium">Medium</option>
@@ -292,7 +303,7 @@ const AddPuzzle = () => {
 					</div>
 
 					<div className="form-group">
-						<label htmlFor="reference">Reference *</label>
+						<label htmlFor="reference">Reference <span aria-label="required">*</span></label>
 						<input
 							type="text"
 							id="reference"
@@ -301,11 +312,12 @@ const AddPuzzle = () => {
 							onChange={handleInputChange}
 							placeholder="e.g., Dell Logic Problems - Summer 2022"
 							required
+							aria-required="true"
 						/>
 					</div>
 
 					<div className="form-group">
-						<label htmlFor="author">Author *</label>
+						<label htmlFor="author">Author <span aria-label="required">*</span></label>
 						<input
 							type="text"
 							id="author"
@@ -313,84 +325,114 @@ const AddPuzzle = () => {
 							value={formData.author}
 							onChange={handleInputChange}
 							required
+							aria-required="true"
 						/>
 					</div>
-				</div>
+				</fieldset>
 
-				<div className="form-section">
-					<h2>Clues</h2>
+				<fieldset className="form-section">
+					<legend>Clues <span aria-label="required">*</span></legend>
 					{clues.map((clue, index) => (
 						<div key={index} className="dynamic-field">
+							<label htmlFor={`clue-${index}`} className="visually-hidden">
+								Clue {index + 1}
+							</label>
 							<textarea
+								id={`clue-${index}`}
 								value={clue}
 								onChange={(e) => handleClueChange(index, e.target.value)}
 								placeholder={`Clue ${index + 1}`}
 								rows="3"
+								aria-label={`Clue ${index + 1}`}
 							/>
 							<button
 								type="button"
 								onClick={() => removeClue(index)}
 								className="remove-btn"
 								disabled={clues.length === 1}
+								aria-label={`Remove clue ${index + 1}`}
 							>
 								Remove
 							</button>
 						</div>
 					))}
-					<button type="button" onClick={addClue} className="add-btn">
+					<button type="button" onClick={addClue} className="add-btn" aria-label="Add another clue">
 						+ Add Clue
 					</button>
-				</div>
+				</fieldset>
 
-				<div className="form-section">
-					<h2>Hints *</h2>
+				<fieldset className="form-section">
+					<legend>Hints <span aria-label="required">*</span></legend>
 					{hints.map((hint, index) => (
 						<div key={index} className="dynamic-field">
+							<label htmlFor={`hint-${index}`} className="visually-hidden">
+								Hint {index + 1}
+							</label>
 							<input
 								type="text"
+								id={`hint-${index}`}
 								value={hint}
 								onChange={(e) => handleHintChange(index, e.target.value)}
 								placeholder={`Hint ${index + 1}`}
+								aria-label={`Hint ${index + 1}`}
 							/>
 							<button
 								type="button"
 								onClick={() => removeHint(index)}
 								className="remove-btn"
 								disabled={hints.length === 1}
+								aria-label={`Remove hint ${index + 1}`}
 							>
 								Remove
 							</button>
 						</div>
 					))}
-					<button type="button" onClick={addHint} className="add-btn">
+					<button type="button" onClick={addHint} className="add-btn" aria-label="Add another hint">
 						+ Add Hint
 					</button>
-				</div>
+				</fieldset>
 
-				<div className="form-section">
-					<h2>Solution *</h2>
+				<fieldset className="form-section">
+					<legend>Solution <span aria-label="required">*</span></legend>
 					<div className="form-group">
-						<label htmlFor="solution">Solution JSON *</label>
+						<label htmlFor="solution" className="visually-hidden">Solution JSON</label>
 						<textarea
 							id="solution"
 							value={solution}
 							onChange={(e) => setSolution(e.target.value)}
-							placeholder='[{"id": 1, "friend": "Lisa", "firstScoop": "fudge ripple", "secondScoop": "cookie dough"}]'
+							placeholder='[{"id": 1, "friend": "Sarah", "room": "garden", "object": "compass", "reaction": "curious"}, ...]'
 							rows="8"
 							required
+							aria-required="true"
+							aria-describedby="solution-help"
 						/>
-						<small>Enter the solution as a JSON array</small>
+						<small id="solution-help">Enter the solution as a JSON array</small>
 					</div>
-				</div>
+				</fieldset>
 
 				<div className="form-actions">
-					<button type="submit" className="submit-btn" disabled={loading}>
+					<button 
+						type="submit" 
+						className="submit-btn" 
+						disabled={loading}
+						aria-disabled={loading}
+					>
 						{loading ? 'Creating Puzzle...' : 'Create Puzzle'}
 					</button>
-					<button type="button" onClick={loadExampleData} className="example-btn">
+					<button 
+						type="button" 
+						onClick={loadExampleData} 
+						className="example-btn"
+						aria-label="Load example puzzle data to help you get started"
+					>
 						Load Example Data
 					</button>
-					<button type="button" onClick={clearForm} className="cancel-btn">
+					<button 
+						type="button" 
+						onClick={clearForm} 
+						className="cancel-btn"
+						aria-label="Clear all form fields and reset to empty state"
+					>
 						Clear Form
 					</button>
 				</div>
