@@ -10,6 +10,20 @@ res.status(409).json({ error: error.message });
 	}
 };
 
+const createSolution = async (req, res) => {
+  try {
+    const { solution, gameId } = req.body;
+    const results = await pool.query(
+      'INSERT INTO solutions (solution, gameId) VALUES ($1, $2) RETURNING *',
+      [JSON.stringify(solution), gameId]
+    );
+    res.status(201).json(results.rows[0]);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+};
+
 export default {
 	getSolutionById,
+	createSolution,
 };

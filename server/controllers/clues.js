@@ -10,6 +10,24 @@ res.status(409).json({ error: error.message });
   }
 };
 
+const createClues = async (req, res) => {
+  try {
+    const { clues, gameId } = req.body;
+    const insertedClues = [];
+    for (const clueText of clues) {
+      const result = await pool.query(
+        'INSERT INTO clue (clue, gameId) VALUES ($1, $2) RETURNING *',
+        [clueText, gameId]
+      );
+      insertedClues.push(result.rows[0]);
+    }
+    res.status(201).json(insertedClues);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+};
+
 export default {
   getCluesById,
+  createClues,
 };

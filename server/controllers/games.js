@@ -21,7 +21,21 @@ const getGameById = async (req, res) => {
   }
 };
 
+const createGame = async (req, res) => {
+  try {
+    const { title, description, difficulty, reference, author } = req.body;
+    const results = await pool.query(
+      "INSERT INTO game (title, description, difficulty, reference, author) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      [title, description, difficulty, reference, author]
+    );
+    res.status(201).json(results.rows[0]);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+};
+
 export default {
   getAllGames,
   getGameById,
+  createGame,
 };
