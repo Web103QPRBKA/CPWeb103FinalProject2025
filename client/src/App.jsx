@@ -2,7 +2,6 @@ import { useRoutes, Link } from 'react-router-dom'
 import Grid from './components/Grid'
 import Welcome from './pages/Welcome';
 import LogicPuzzle from './components/LogicPuzzle'
-import AddPuzzle from './pages/AddPuzzle'
 import './css/App.css'
 import Leaderboard from './components/Leaderboard'
 
@@ -19,10 +18,6 @@ const App = () => {
     {
     path: "/leaderboard",
     element: <Leaderboard />,
-    },
-    {
-    path: "/add-puzzle",
-    element: <AddPuzzle />,
     }
   ]);
 
@@ -42,7 +37,6 @@ const App = () => {
           <button className="headerBtn">Play Puzzle 3</button>
         </Link>
         <Link to='/leaderboard'><button className='headerBtn'>Leaderboard</button></Link>
-        <Link to='/add-puzzle'><button className='headerBtn'>Add Puzzle</button></Link>
       </div>
       <main className='main-content'>{element}</main>
 
