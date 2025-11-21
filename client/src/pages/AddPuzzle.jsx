@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/AddPuzzle.css';
 
@@ -20,6 +20,22 @@ const AddPuzzle = () => {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
 	const [success, setSuccess] = useState('');
+	const [existingPuzzles, setExistingPuzzles] = useState([]);
+
+	useEffect(() => {
+		const fetchExistingPuzzles = async () => {
+			try {
+				const response = await fetch(`${API_BASE_URL}/games`);
+				if (response.ok) {
+					const data = await response.json();
+					setExistingPuzzles(data);
+				}
+			} catch (err) {
+				console.error('Error fetching existing puzzles:', err);
+			}
+		};
+		fetchExistingPuzzles();
+	}, [success]); // Re-fetch when a new puzzle is successfully added
 
 	const loadExampleData = () => {
 		setFormData({
@@ -253,6 +269,28 @@ const AddPuzzle = () => {
 			{success && (
 				<div className="success-message" role="status" aria-live="polite">
 					{success}
+				</div>
+			)}
+
+			{existingPuzzles.length > 0 && (
+				<div className="existing-puzzles-section">
+					<h2>Existing Puzzles ({existingPuzzles.length})</h2>
+					<p className="helper-text">Check this list to avoid adding duplicates</p>
+					<div className="puzzles-grid">
+						{existingPuzzles.map((puzzle) => (
+							<div key={puzzle.id} className="puzzle-card">
+								<div className="puzzle-header">
+									<span className="puzzle-id">#{puzzle.id}</span>
+									<span className={`difficulty-badge ${puzzle.difficulty.toLowerCase()}`}>
+										{puzzle.difficulty}
+									</span>
+								</div>
+								<h3>{puzzle.title}</h3>
+								<p className="puzzle-author">by {puzzle.author}</p>
+								<p className="puzzle-reference">{puzzle.reference}</p>
+							</div>
+						))}
+					</div>
 				</div>
 			)}
 
