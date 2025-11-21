@@ -30,11 +30,11 @@ const createGame = async (req, res) => {
 		if (
 			typeof title !== 'string' || !title.trim() ||
 			typeof description !== 'string' || !description.trim() ||
-			typeof difficulty !== 'number' ||
+			typeof difficulty !== 'string' || !difficulty.trim() ||
 			typeof reference !== 'string' || !reference.trim() ||
 			typeof author !== 'string' || !author.trim()
 		) {
-			return res.status(400).json({ error: "Missing or invalid required fields: title (string), description (string), difficulty (number), reference (string), author (string)" });
+			return res.status(400).json({ error: "Missing or invalid required fields: title (string), description (string), difficulty (string), reference (string), author (string)" });
 		}
 
 		const results = await pool.query(
